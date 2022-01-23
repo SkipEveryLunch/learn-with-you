@@ -1,0 +1,5 @@
+api/storage/dbdata/
+api/vendor/
+api/node_modules/
+web/node_modules/
+.git
