@@ -16,7 +16,6 @@ services:
       - 8000:8000
     volumes:
       - ./api:/app
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db

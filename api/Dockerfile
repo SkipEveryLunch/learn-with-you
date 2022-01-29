@@ -7,11 +7,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 WORKDIR /app
 COPY . .
 RUN composer install
-# RUN php artisan migrate --seed
-CMD php artisan serve --host=0.0.0.0
 
-# FROM nginx
-# EXPOSE 8000
-# COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-# # COPY --from=builder /app/public /usr/share/nginx/html
-# COPY --from=builder /app /usr/share/nginx/html
+FROM nginx
+EXPOSE 8000
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=builder /app /usr/share/nginx/html
