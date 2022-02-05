@@ -37,10 +37,10 @@
 <script lang="ts">
 import { Section } from '../../types';
 import axios from 'axios';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-export default {
+export default defineComponent({
   name: 'StudySelect',
   setup() {
     const {
@@ -72,7 +72,7 @@ export default {
       sectionId,
     };
   },
-};
+});
 </script>
 <style scoped>
 .buttonContainer {

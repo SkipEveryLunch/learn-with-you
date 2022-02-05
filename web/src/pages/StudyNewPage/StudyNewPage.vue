@@ -18,13 +18,13 @@
 <script lang="ts">
 import { Section, Question } from '../../types';
 import axios from 'axios';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import StudyTemplate from '../../components/StudyTemplate.vue';
 import FinishedTemplate from '../../components/FinishedTemplated.vue';
 import Spinner from '../../components/Spinner.vue';
-export default {
+export default defineComponent({
   name: 'StudyNewPage',
   components: {
     StudyTemplate,
@@ -115,7 +115,7 @@ export default {
       answeredIds,
     };
   },
-};
+});
 </script>
 <style scoped>
 .buttonContainer {

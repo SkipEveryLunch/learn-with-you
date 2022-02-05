@@ -9,16 +9,17 @@
     <p class="text-2xl text-center text-blue-200 flicker">Loading...</p>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
   name: 'Spinner',
   components: { FontAwesomeIcon },
   setup() {
     return { faSpinner };
   },
-};
+});
 </script>
 <style scoped>
 .flicker {

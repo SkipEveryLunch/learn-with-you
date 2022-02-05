@@ -89,7 +89,7 @@ interface FormState {
 }
 import { Section, Question } from '../../types';
 import axios from 'axios';
-import { ref, reactive, onMounted, computed } from 'vue';
+import { ref, reactive, onMounted, computed, defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import FlipCard from '../../components/FlipCard.vue';
@@ -100,7 +100,7 @@ const range = (start: number, end: number) => {
   }
   return list;
 };
-export default {
+export default defineComponent({
   name: 'Study',
   components: {
     FlipCard,
@@ -246,7 +246,7 @@ export default {
       onFlip,
     };
   },
-};
+});
 </script>
 <style scoped>
 .buttonContainer {

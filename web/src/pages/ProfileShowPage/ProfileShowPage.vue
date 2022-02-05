@@ -40,11 +40,11 @@
     <Spinner />
   </div>
 </template>
-<script>
-import { computed } from 'vue';
+<script lang="ts">
+import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import Spinner from '../../components/Spinner.vue';
-export default {
+export default defineComponent({
   name: 'ProfileShowPage',
   components: {
     Spinner,
@@ -62,5 +62,5 @@ export default {
       user,
     };
   },
-};
+});
 </script>
