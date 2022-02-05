@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div v-if="user">
+  <div class="h-full w-full">
+    <div v-if="user" class="h-full w-full">
       <router-view />
     </div>
-    <div v-else>die</div>
+    <div v-else></div>
   </div>
 </template>
 <script lang="ts">
