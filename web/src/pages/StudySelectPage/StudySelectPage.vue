@@ -50,15 +50,7 @@ export default {
     const store = useStore();
     const router = useRouter();
     onMounted(async () => {
-      if (!user.value) {
-        store.dispatch('setModal', {
-          type: 'error',
-          messages: ['ログインが必要です'],
-        });
-        router.push('/');
-      } else {
-        await load();
-      }
+      await load();
     });
     const load = async () => {
       try {

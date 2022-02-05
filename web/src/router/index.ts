@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Wrapper from '../components/Wrapper.vue';
+import Authorization from '../components/Authorization.vue';
 import LoginPage from '../pages/LoginPage/LoginPage.vue';
 import RegisterPage from '../pages/RegisterPage/RegisterPage.vue';
 import ProfileShowPage from '../pages/ProfileShowPage/ProfileShowPage.vue';
@@ -40,69 +41,77 @@ const routes: Array<RouteRecordRaw> = [
         name: 'RegisterPage',
         component: RegisterPage,
       },
+
       {
-        path: '/message_show',
-        name: 'MessageShowPage',
-        component: MessageShowPage,
-      },
-      {
-        path: '/profile_show',
-        name: 'ProfileShowPage',
-        component: ProfileShowPage,
-      },
-      {
-        path: '/profile_edit',
-        name: 'ProfileEditPage',
-        component: ProfileEditPage,
-      },
-      {
-        path: '/password_edit',
-        name: 'PasswordEditPage',
-        component: PasswordEditPage,
-      },
-      {
-        path: '/section_submit',
-        name: 'SectionSubmitPage',
-        component: SectionSubmitPage,
-      },
-      {
-        path: '/section/:sectionId/study',
-        name: 'StudySelectPage',
-        component: StudySelectPage,
-      },
-      {
-        path: '/section/:sectionId/study_new',
-        name: 'StudyNewPage',
-        component: StudyNewPage,
-      },
-      {
-        path: '/section/:sectionId/study_review',
-        name: 'StudyReviewPage',
-        component: StudyReviewPage,
-      },
-      {
-        path: '/section/:sectionId/edit',
-        name: 'SectionEdit',
-        component: SectionEditPage,
-      },
-      {
-        path: '/section/:sectionId/submit',
-        name: 'QuestionSubmitPage',
-        component: QuestionSubmitPage,
-      },
-      {
-        path: '/section/:sectionId/question/:questionId/edit',
-        name: 'QuestionEditPage',
-        component: QuestionEditPage,
-      },
-      {
-        path: '/section/:sectionId/question/:questionId/comment',
-        name: 'CommentShowPage',
-        component: CommentShowPage,
-      },
-      {
-        path: '/:pathMatch(.*)*',
-        component: NotFoundPage,
+        path: '/',
+        component: Authorization,
+        children: [
+          {
+            path: '/section/:sectionId/edit',
+            name: 'SectionEdit',
+            component: SectionEditPage,
+          },
+          {
+            path: '/message_show',
+            name: 'MessageShowPage',
+            component: MessageShowPage,
+          },
+          {
+            path: '/profile_show',
+            name: 'ProfileShowPage',
+            component: ProfileShowPage,
+          },
+          {
+            path: '/profile_edit',
+            name: 'ProfileEditPage',
+            component: ProfileEditPage,
+          },
+          {
+            path: '/password_edit',
+            name: 'PasswordEditPage',
+            component: PasswordEditPage,
+          },
+          {
+            path: '/section_submit',
+            name: 'SectionSubmitPage',
+            component: SectionSubmitPage,
+          },
+          {
+            path: '/section/:sectionId/study',
+            name: 'StudySelectPage',
+            component: StudySelectPage,
+          },
+          {
+            path: '/section/:sectionId/study_new',
+            name: 'StudyNewPage',
+            component: StudyNewPage,
+          },
+          {
+            path: '/section/:sectionId/study_review',
+            name: 'StudyReviewPage',
+            component: StudyReviewPage,
+          },
+
+          {
+            path: '/section/:sectionId/submit',
+            name: 'QuestionSubmitPage',
+            component: QuestionSubmitPage,
+          },
+          {
+            path: '/section/:sectionId/question/:questionId/edit',
+            name: 'QuestionEditPage',
+            component: QuestionEditPage,
+          },
+          {
+            path: '/section/:sectionId/question/:questionId/comment',
+            name: 'CommentShowPage',
+            component: CommentShowPage,
+          },
+          {
+            path: '/:pathMatch(.*)*',
+            component: NotFoundPage,
+          },
+        ],
       },
     ],
   },

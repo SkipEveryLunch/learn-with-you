@@ -168,16 +168,8 @@ export default defineComponent({
       page.value = newPage;
     };
     onMounted(async () => {
-      if (!user.value) {
-        store.dispatch('setModal', {
-          type: 'error',
-          messages: ['ログインが必要です'],
-        });
-        router.push('/');
-      } else {
-        await load();
-        isLoading.value = false;
-      }
+      await load();
+      isLoading.value = false;
     });
     store.watch(
       (state) => {

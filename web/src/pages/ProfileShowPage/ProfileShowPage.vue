@@ -41,9 +41,8 @@
   </div>
 </template>
 <script>
-import { onMounted, computed } from 'vue';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
-import { useRouter } from 'vue-router';
 import Spinner from '../../components/Spinner.vue';
 export default {
   name: 'ProfileShowPage',
@@ -52,21 +51,11 @@ export default {
   },
   setup() {
     const store = useStore();
-    const router = useRouter();
     const user = computed(() => {
       if (store.state.user) {
         return store.state.user;
       } else {
         return null;
-      }
-    });
-    onMounted(() => {
-      if (!store.state.user) {
-        store.dispatch('setModal', {
-          type: 'error',
-          messages: ['ログインが必要です'],
-        });
-        router.push('/');
       }
     });
     return {
