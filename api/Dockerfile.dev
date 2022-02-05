@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 RUN composer install
 # RUN php artisan migrate --seed
-CMD php artisan serve --host=0.0.0.0
+CMD php artisan serve --host=0.0.0.0 --port=9000
 
 # FROM nginx
 # EXPOSE 8000
