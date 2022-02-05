@@ -16,14 +16,14 @@
     </div>
   </div>
 </template>
-<script>
+<script lang="ts">
 import Header from './Header/Header.vue';
 import Modal from './Modal.vue';
 import CommentModal from './CommentModal.vue';
 import axios from 'axios';
-import { onMounted, computed } from 'vue';
+import { onMounted, computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
-export default {
+export default defineComponent({
   name: 'Wrapper',
   components: {
     Header,
@@ -62,7 +62,7 @@ export default {
       commentModal,
     };
   },
-};
+});
 </script>
 <style scoped>
 .modal-enter-from {
