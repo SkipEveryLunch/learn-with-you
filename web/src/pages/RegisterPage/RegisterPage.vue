@@ -64,13 +64,13 @@
     </div>
   </div>
 </template>
-<script>
-import { reactive, watch, ref, computed } from 'vue';
+<script lang="ts">
+import { reactive, watch, ref, computed, defineComponent } from 'vue';
 import Input from '../../components/Input.vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
-export default {
+export default defineComponent({
   name: 'LoginPage',
   components: { Input },
   setup() {
@@ -216,5 +216,5 @@ export default {
       onRegister,
     };
   },
-};
+});
 </script>

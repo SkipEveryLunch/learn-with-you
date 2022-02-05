@@ -6,10 +6,11 @@
     </button>
   </form>
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-export default {
+export default defineComponent({
   props: ['modelValue'],
   emits: ['on-input', 'on-submit'],
   components: {
@@ -28,7 +29,7 @@ export default {
       onInput,
     };
   },
-};
+});
 </script>
 <style scoped>
 .search_container {

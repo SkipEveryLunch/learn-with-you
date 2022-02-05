@@ -1,7 +1,18 @@
 <template>
   <div
     data-testid="profile-dropdown"
-    class="absolute right-0 z-10 text-black bg-gray-100 border border-gray-400 rounded shadow-sm  top-full w-max"
+    class="
+      absolute
+      right-0
+      z-10
+      text-black
+      bg-gray-100
+      border border-gray-400
+      rounded
+      shadow-sm
+      top-full
+      w-max
+    "
     v-click-away="() => toggleDropDown(false)"
   >
     <ul>
@@ -33,12 +44,12 @@
     </ul>
   </div>
 </template>
-<script>
+<script lang="ts">
 import axios from 'axios';
-import { computed } from 'vue';
+import { defineComponent, computed } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
-export default {
+export default defineComponent({
   name: 'ProfileDropDown',
   props: ['toggleDropDown'],
   setup(props) {
@@ -81,7 +92,7 @@ export default {
       goTo,
     };
   },
-};
+});
 </script>
 <style scoped>
 .profileList {

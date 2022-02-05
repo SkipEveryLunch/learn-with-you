@@ -43,14 +43,14 @@
     </div>
   </nav>
 </template>
-<script>
-import { computed, ref } from 'vue';
+<script lang="ts">
+import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import ProfileDropDown from '../ProfileDropDown.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/Logo.vue';
-export default {
+export default defineComponent({
   name: 'Header',
   components: { ProfileDropDown, FontAwesomeIcon, Logo },
   setup() {
@@ -74,7 +74,7 @@ export default {
       faChevronDown,
     };
   },
-};
+});
 </script>
 <style scoped>
 .dropdown-enter-from {

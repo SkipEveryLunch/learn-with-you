@@ -54,13 +54,20 @@
   </div>
   <div data-testid="not-found-message"></div>
 </template>
-<script>
-import { reactive, watch, ref, computed, onMounted } from 'vue';
+<script lang="ts">
+import {
+  reactive,
+  watch,
+  ref,
+  computed,
+  onMounted,
+  defineComponent,
+} from 'vue';
 import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 import TextArea from '../../components/TextArea.vue';
 import axios from 'axios';
-export default {
+export default defineComponent({
   name: 'QuestionSubmitPage',
   components: { TextArea },
   setup() {
@@ -211,5 +218,5 @@ export default {
       goBack,
     };
   },
-};
+});
 </script>

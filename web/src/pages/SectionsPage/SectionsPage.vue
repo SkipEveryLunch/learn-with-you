@@ -69,7 +69,7 @@
 <script lang="ts">
 class ListElement extends HTMLElement {}
 import gsap from 'gsap';
-import { onMounted, computed, ref } from 'vue';
+import { onMounted, computed, ref, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import axios from 'axios';
 import { Section, Series } from '../../types';
@@ -77,7 +77,7 @@ import Spinner from '../../components/Spinner.vue';
 import SectionCard from '../../components/SectionCard.vue';
 import SearchBox from '../../components/SearchBox.vue';
 import Paginator from '../../components/Paginator.vue';
-export default {
+export default defineComponent({
   name: 'SectionsPage',
   components: {
     Spinner,
@@ -167,7 +167,7 @@ export default {
       page,
     };
   },
-};
+});
 </script>
 <style scoped>
 .column {

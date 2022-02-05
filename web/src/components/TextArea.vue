@@ -17,9 +17,9 @@
     />
   </div>
 </template>
-<script>
-import { computed } from 'vue';
-export default {
+<script lang="ts">
+import { defineComponent, computed } from 'vue';
+export default defineComponent({
   props: ['name', 'id', 'error', 'modelValue', 'row'],
   emits: ['custom-input'],
   setup(props, { emit }) {
@@ -36,7 +36,7 @@ export default {
       onInput,
     };
   },
-};
+});
 </script>
 <style scoped>
 .formInput {

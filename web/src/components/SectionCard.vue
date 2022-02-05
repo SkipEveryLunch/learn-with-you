@@ -20,9 +20,9 @@
     </div>
   </div>
 </template>
-<script>
-import { ref } from 'vue';
-export default {
+<script lang="ts">
+import { ref, defineComponent } from 'vue';
+export default defineComponent({
   name: 'SectionCard',
   props: ['section'],
   setup() {
@@ -35,7 +35,7 @@ export default {
       isFliped,
     };
   },
-};
+});
 </script>
 <style scoped>
 .card {

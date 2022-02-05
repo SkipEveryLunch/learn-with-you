@@ -56,13 +56,20 @@
     </div>
   </div>
 </template>
-<script>
-import { reactive, watch, ref, computed, onMounted } from 'vue';
+<script lang="ts">
+import {
+  reactive,
+  watch,
+  ref,
+  computed,
+  onMounted,
+  defineComponent,
+} from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import Input from '../../components/Input.vue';
 import axios from 'axios';
-export default {
+export default defineComponent({
   name: 'LoginPage',
   components: { Input },
   setup() {
@@ -197,5 +204,5 @@ export default {
       goBack,
     };
   },
-};
+});
 </script>

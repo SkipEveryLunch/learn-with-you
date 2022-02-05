@@ -6,11 +6,11 @@
     <span class="count">{{ count }}</span>
   </div>
 </template>
-<script>
-import { computed } from 'vue';
+<script lang="ts">
+import { computed ,defineComponent} from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
-export default {
+export default defineComponent({
   name: 'CommentIcon',
   props: ['count', 'isCommented'],
   emits: ['comment'],
@@ -30,7 +30,7 @@ export default {
       colorClass,
     };
   },
-};
+});
 </script>
 <style scoped>
 .count {

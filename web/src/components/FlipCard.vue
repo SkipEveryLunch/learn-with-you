@@ -21,8 +21,9 @@
     </transition>
   </div>
 </template>
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
   name: 'FlipCard',
   props: ['front', 'back', 'phase'],
   emits: ['flip'],
@@ -34,7 +35,7 @@ export default {
       flip,
     };
   },
-};
+});
 </script>
 <style scoped>
 .card {

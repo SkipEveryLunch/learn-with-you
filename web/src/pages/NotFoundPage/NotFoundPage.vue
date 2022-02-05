@@ -12,10 +12,10 @@
     <p>ページが見つかりません</p>
   </div>
 </template>
-<script>
-import { onMounted } from 'vue';
+<script lang="ts">
+import { defineComponent, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-export default {
+export default defineComponent({
   name: 'NotFoundPage',
   setup() {
     const router = useRouter();
@@ -25,7 +25,7 @@ export default {
       }, 2000);
     });
   },
-};
+});
 </script>
 <style scoped>
 .glitch {
