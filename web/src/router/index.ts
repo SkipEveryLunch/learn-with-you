@@ -107,11 +107,11 @@ const routes: Array<RouteRecordRaw> = [
             name: 'CommentShowPage',
             component: CommentShowPage,
           },
-          {
-            path: '/:pathMatch(.*)*',
-            component: NotFoundPage,
-          },
         ],
+      },
+      {
+        path: '/:pathMatch(.*)*',
+        component: NotFoundPage,
       },
     ],
   },

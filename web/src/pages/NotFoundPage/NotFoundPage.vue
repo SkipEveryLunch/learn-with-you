@@ -1,15 +1,17 @@
 <template>
-  <div class="h-1/6"></div>
-  <div class="flex items-center justify-center h-1/3">
-    <div class="text-5xl text-center text-gray-100 text-bold glitch">
-      <span area-hidden="true">404</span>
-      <span area-hidden="true">404</span>
-      <span area-hidden="true">404</span>
-      <span>404</span>
+  <div class="h-full w-full">
+    <div class="h-1/6"></div>
+    <div class="flex items-center justify-center h-1/3">
+      <div class="text-5xl text-center text-gray-100 text-bold glitch">
+        <span area-hidden="true">404</span>
+        <span area-hidden="true">404</span>
+        <span area-hidden="true">404</span>
+        <span>404</span>
+      </div>
     </div>
-  </div>
-  <div class="text-center">
-    <p>ページが見つかりません</p>
+    <div class="text-center">
+      <p>ページが見つかりません</p>
+    </div>
   </div>
 </template>
 <script lang="ts">
