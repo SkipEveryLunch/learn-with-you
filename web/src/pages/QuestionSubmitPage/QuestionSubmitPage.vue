@@ -99,7 +99,7 @@ export default defineComponent({
       if (!store.state.user) {
         router.push('/login');
       } else {
-        form.section_id = route.params.sectionId;
+        form.section_id = route.params.sectionId as string;
       }
     });
     watch(form, () => {
