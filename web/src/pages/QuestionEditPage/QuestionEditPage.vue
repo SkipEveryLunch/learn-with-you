@@ -1,9 +1,5 @@
 <template>
-  <div
-    v-if="user"
-    data-testid="question-submit-page"
-    class="flex flex-col items-center"
-  >
+  <div data-testid="question-submit-page" class="flex flex-col items-center">
     <div>
       <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">問題の編集</h1>
     </div>
@@ -52,7 +48,6 @@
       </div>
     </div>
   </div>
-  <div data-testid="not-found-message"></div>
 </template>
 <script lang="ts">
 import {
