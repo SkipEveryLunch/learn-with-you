@@ -104,7 +104,10 @@ export default defineComponent({
 .search_container button {
   cursor: pointer;
   border: none;
-  @apply absolute right-2;
+  @apply absolute right-2 h-full;
   outline: none;
+}
+.search_container button:hover {
+  @apply text-blue-600;
 }
 </style>
