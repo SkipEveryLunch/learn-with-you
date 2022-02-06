@@ -1,8 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div
-      class="pt-2 pb-3 pl-2 text-4xl font-bold text-gray-700 cursor-pointer  w-max"
-    >
+    <div class="pt-2 pb-3 pl-2 text-4xl font-bold text-gray-700 w-max">
       セクション一覧
     </div>
     <SearchWindow

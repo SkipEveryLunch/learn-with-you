@@ -1,10 +1,7 @@
 <template>
   <div v-if="!isLoading && section" class="h-full">
     <div class="w-full">
-      <div
-        class="py-2 pl-2 text-4xl font-bold text-gray-700 cursor-pointer w-max"
-        @click="showAllQuestions"
-      >
+      <div class="py-2 pl-2 text-4xl font-bold text-gray-700 w-max">
         {{ section.title }}
         <p class="text-lg">
           <span class="mr-3">問題数：{{ section.count_questions }}</span>
