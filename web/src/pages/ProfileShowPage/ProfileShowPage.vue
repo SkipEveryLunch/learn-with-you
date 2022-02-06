@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user" class="flex justify-center" data-testid="profile-page">
+  <div v-if="user" class="flex justify-center mt-2" data-testid="profile-page">
     <div class="w-2/3 p-5 my-5 text-xl text-gray-100 bg-gray-700 rounded">
       <div class="my-5">
         <p class="mb-3">

@@ -34,7 +34,7 @@
 </template>
 <script lang="ts">
 import gsap from 'gsap';
-import QuestionCard from '../components/QuestionCard.vue';
+import QuestionCard from './QuestionCard.vue';
 import { computed, defineComponent, SetupContext } from 'vue';
 import { Question } from '../types';
 interface FinishedTemplateProps {

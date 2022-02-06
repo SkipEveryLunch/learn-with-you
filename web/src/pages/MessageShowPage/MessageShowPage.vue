@@ -1,7 +1,7 @@
 <template>
   <div v-if="!isLoading" class="h-full">
     <div class="flex flex-col w-full mx-2">
-      <div class="pt-2 pb-3 text-4xl font-bold text-gray-700 w-max">
+      <div class="pt-3 pb-2 text-4xl font-bold text-gray-700 w-max">
         メッセージ一覧
         <p class="text-lg">
           <span class="mr-3">全{{ messages.length }}件</span>

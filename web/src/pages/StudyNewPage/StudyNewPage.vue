@@ -22,7 +22,7 @@ import { ref, onMounted, computed, defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import StudyTemplate from '../../components/StudyTemplate.vue';
-import FinishedTemplate from '../../components/FinishedTemplated.vue';
+import FinishedTemplate from '../../components/FinishedTemplate.vue';
 import Spinner from '../../components/Spinner.vue';
 export default defineComponent({
   name: 'StudyNewPage',
