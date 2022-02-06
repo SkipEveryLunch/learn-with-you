@@ -27,7 +27,7 @@ export default defineComponent({
   props: ['section'],
   setup() {
     const isFliped = ref(false);
-    const flip = (value) => {
+    const flip = (value: boolean) => {
       isFliped.value = value;
     };
     return {
