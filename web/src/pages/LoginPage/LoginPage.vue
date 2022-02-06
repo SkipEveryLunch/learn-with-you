@@ -63,10 +63,10 @@ export default defineComponent({
       password: ['パスワードが未入力です'],
     });
     const isCalling = ref(false);
-    const onChangeEmail = (payload) => {
+    const onChangeEmail = (payload: string) => {
       form.email = payload;
     };
-    const onChangePassword = (payload) => {
+    const onChangePassword = (payload: string) => {
       form.password = payload;
     };
     watch(form, () => {
@@ -88,12 +88,12 @@ export default defineComponent({
         deleteFromArr(errors.password, 'パスワードが未入力です');
       }
     });
-    const pushToArr = (arr, str) => {
+    const pushToArr = (arr: string[], str: string) => {
       if (!arr.includes(str)) {
         arr.push(str);
       }
     };
-    const deleteFromArr = (arr, str) => {
+    const deleteFromArr = (arr: string[], str: string) => {
       if (arr.includes(str)) {
         arr = arr.splice(arr.indexOf(str), 1);
       }
