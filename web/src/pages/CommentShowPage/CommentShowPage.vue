@@ -1,49 +1,40 @@
 <template>
-  <div v-if="!isLoading" data-testid="comment-show-page" class="flex h-full">
-    <div class="flex flex-col w-1/3 px-4 py-3">
+  <div v-if="!isLoading" data-testid="comment-show-page" class="h-full">
+    <div class="w-full px-4 py-3">
       <div class="pt-2 pb-3 text-4xl font-bold text-gray-700">
         コメント一覧
         <p class="text-lg">{{ comments.length }}件の改善要望が届いています</p>
       </div>
-      <div class="flex pr-1 mt-1 mb-2">
-        <div class="flex flex-col ml-2">
-          <div
-            v-for="type in commentTypes"
-            class="flex justify-between py-2 cursor-pointer sideRow"
-            :key="type.id"
-            @click="() => filterCommentsByType(type.id)"
-          >
-            <div class="mr-5">
-              <p>
-                {{ type.name }}
-              </p>
-            </div>
-            <div>
-              <p>{{ type.count }}件</p>
-            </div>
-          </div>
-          <div class="sideRow">
-            <router-link
-              data-testid="section-submit-link"
-              :to="`/section/${sectionId}/edit`"
-              ><p>戻る</p></router-link
-            >
-          </div>
-        </div>
-      </div>
     </div>
     <div v-if="fComments.length > 0 && question" class="w-full">
       <div class="px-3">
-        <div class="flex card">
-          <div class="flex w-full">
-            <div class="w-1/2 p-2 border-r">
-              <p>質問:</p>
-              <p>{{ question.front }}</p>
+        <div class="flex flex-col card">
+          <div class="w-full">
+            <div class="p-2 pb-4">
+              <p>質問: {{ question.front }}</p>
+              <p>解答: {{ question.back }}</p>
             </div>
-            <div class="w-1/2 p-2 ml-2">
-              <p>解答:</p>
-              <p>{{ question.back }}</p>
+          </div>
+          <div class="flex justify-between pl-2">
+            <div class="flex">
+              <div class="search_container">
+                <select class="px-2 text-gray-700" v-model="selectedType">
+                  <option :value="0">全てのタイプのコメントを表示</option>
+                  <option
+                    v-for="type in commentTypes"
+                    :key="type.id"
+                    :value="type.id"
+                  >
+                    {{ type.name }} ({{ type.count }}件)
+                  </option>
+                </select>
+              </div>
             </div>
+            <router-link
+              data-testid="section-submit-link"
+              :to="`/section/${sectionId}/edit`"
+              ><button class="btn btn-sub-white">戻る</button></router-link
+            >
           </div>
         </div>
       </div>
@@ -73,7 +64,7 @@
   </div>
 </template>
 <script lang="ts">
-import { ref, computed, onMounted, defineComponent } from 'vue';
+import { ref, computed, onMounted, watch, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import { Comment, Question, CountedCommentType } from '../../types';
 import { useRoute, useRouter } from 'vue-router';
@@ -102,14 +93,16 @@ export default defineComponent({
     const comments = ref<Comment[]>([]);
     const fComments = ref<Comment[]>([]);
     const question = ref<Question>();
-    const showAllComments = () => {
-      fComments.value = comments.value;
-    };
-    const filterCommentsByType = (type: number) => {
-      fComments.value = comments.value.filter((el) => {
-        return el.comment_type.id === type;
-      });
-    };
+    const selectedType = ref(0);
+    watch(selectedType, () => {
+      if (selectedType.value !== 0) {
+        fComments.value = comments.value.filter((el) => {
+          return el.comment_type.id === selectedType.value;
+        });
+      } else {
+        fComments.value = comments.value;
+      }
+    });
     const reloadComments = async () => {
       isLoading.value = true;
       const commentsData = await axios.get(
@@ -179,12 +172,11 @@ export default defineComponent({
       isPostedByUser,
       beforeEnter,
       enter,
-      showAllComments,
       commentTypes,
-      filterCommentsByType,
       isLoading,
       question,
       reloadComments,
+      selectedType,
     };
   },
 });
@@ -193,7 +185,18 @@ export default defineComponent({
 .card {
   @apply p-3 mb-2 bg-gray-700 rounded flex w-full;
 }
-.border-r {
-  border-right: 2px solid rgba(115, 115, 115);
+.search_container {
+  box-sizing: border-box;
+  @apply text-gray-700 rounded-sm relative bg-gray-100;
+  width: 15rem;
+  display: block;
+  overflow: hidden;
+}
+.search_container select {
+  border: none;
+  @apply bg-gray-100 w-full p-1 pl-2;
+}
+.search_container select:focus {
+  outline: 0;
 }
 </style>
