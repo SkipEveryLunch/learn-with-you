@@ -1,8 +1,8 @@
 <template>
-  <div v-if="!isLoading && section" class="flex h-full">
-    <div class="flex flex-col w-1/3 px-4 py-3">
+  <div v-if="!isLoading && section" class="h-full">
+    <div class="w-full">
       <div
-        class="pt-2 pb-3 text-4xl font-bold text-gray-700 cursor-pointer w-max"
+        class="py-2 pl-2 text-4xl font-bold text-gray-700 cursor-pointer w-max"
         @click="showAllQuestions"
       >
         {{ section.title }}
@@ -12,31 +12,20 @@
         </p>
       </div>
       <div class="flex pr-1 mt-1 mb-2">
-        <SearchBox
+        <SearchWindow
+          :addPath="`/section/${sectionId}/submit`"
+          goBackPath="/"
           @on-input="onChangeSearch"
           @on-submit="filterQuestions"
+          @show-all="showAllQuestions"
+          @filter-mine="findMyQuestions"
           :modelValue="search"
         />
-      </div>
-      <div class="flex flex-col ml-2" @click="findMyQuestions">
-        <div class="sideRow" v-if="user">
-          <p>投稿した問題</p>
-        </div>
-        <div class="sideRow">
-          <router-link v-if="user" :to="`/section/${sectionId}/submit`"
-            ><p>新しい問題を投稿</p></router-link
-          >
-        </div>
-        <div class="sideRow" v-if="user">
-          <router-link data-testid="section-submit-link" to="/"
-            ><p>戻る</p></router-link
-          >
-        </div>
       </div>
     </div>
     <div
       v-if="sQuestions.length > 0"
-      class="w-full"
+      class="w-full px-5"
       data-testid="question-page"
     >
       <Paginator
@@ -81,13 +70,13 @@ import { useStore } from 'vuex';
 import { Section, Question } from '../../types';
 import Paginator from '../../components/Paginator.vue';
 import Spinner from '../../components/Spinner.vue';
-import SearchBox from '../../components/SearchBox.vue';
+import SearchWindow from '../../components/SearchWindow.vue';
 export default defineComponent({
   name: 'SectionEditPage',
   components: {
     Spinner,
     QuestionCard,
-    SearchBox,
+    SearchWindow,
     Paginator,
   },
   setup() {
