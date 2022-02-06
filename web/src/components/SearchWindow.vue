@@ -43,11 +43,7 @@
         >
           自作のみ
         </button>
-        <button
-          v-if="!isSelectMode"
-          class="mr-1 btn btn-sub-white text-md"
-          @click="showAll"
-        >
+        <button class="mr-1 btn btn-sub-white text-md" @click="showAll">
           全て表示
         </button>
         <button
@@ -103,18 +99,26 @@ export default defineComponent({
   setup(_, { emit }) {
     const selectedSeries = ref(0);
     const isSelectMode = ref(false);
+    const stopChangeSeries = ref(false);
     const toggleSelectMode = (value: boolean) => {
       isSelectMode.value = value;
       selectedSeries.value = 0;
     };
     watch(selectedSeries, () => {
-      emit('change-series', selectedSeries.value);
+      if (!stopChangeSeries.value) {
+        emit('change-series', selectedSeries.value);
+      }
     });
     const showAll = () => {
       emit('show-all');
     };
-    const filterMine = () => {
+    const filterMine = async () => {
+      stopChangeSeries.value = true;
+      selectedSeries.value = 0;
       emit('filter-mine');
+      setTimeout(() => {
+        stopChangeSeries.value = false;
+      }, 10);
     };
     const filterNew = () => {
       emit('filter-new');
