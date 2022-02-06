@@ -74,6 +74,7 @@
   </div>
 </template>
 <script lang="ts">
+import { Series } from '../types';
 import { ref, watch, defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
@@ -84,7 +85,13 @@ import {
 export default defineComponent({
   name: 'SearchWindow',
   components: { FontAwesomeIcon },
-  props: ['modelValue', 'series', 'goBackPath', 'addPath', 'isMessage'],
+  props: {
+    modelValue: { type: String, required: true },
+    series: { type: Object as () => Series[], required: false },
+    goBackPath: { type: String, required: false },
+    addPath: { type: String, required: false },
+    isMessage: { type: Boolean, required: true },
+  },
   emits: [
     'show-all',
     'filter-mine',
