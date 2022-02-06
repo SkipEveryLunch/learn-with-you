@@ -1,18 +1,7 @@
 <template>
   <div
     data-testid="profile-dropdown"
-    class="
-      absolute
-      right-0
-      z-10
-      text-black
-      bg-gray-100
-      border border-gray-400
-      rounded
-      shadow-sm
-      top-full
-      w-max
-    "
+    class="absolute right-0 z-10 text-black bg-gray-100 border border-gray-400 rounded shadow-sm  top-full w-max"
     v-click-away="() => toggleDropDown(false)"
   >
     <ul>
@@ -58,7 +47,7 @@ export default defineComponent({
     const unconfirmedMessages = computed(() => {
       return store.state.unconfirmed;
     });
-    const goTo = (path) => {
+    const goTo = (path: string) => {
       props.toggleDropDown(false);
       router.push(path);
     };
