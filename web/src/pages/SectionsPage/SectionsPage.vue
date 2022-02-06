@@ -10,6 +10,7 @@
       @on-submit="filterSections"
       @show-all="showAllSections"
       @filter-mine="findMySections"
+      @change-series="(id) => filterBySeries(id)"
       :modelValue="search"
     />
     <div v-if="!isLoading" class="px-5">
@@ -96,9 +97,13 @@ export default defineComponent({
       fSections.value = sections.value;
     };
     const filterBySeries = (id: number) => {
-      fSections.value = sections.value.filter((el) => {
-        return el.series.id === id;
-      });
+      if (id !== 0) {
+        fSections.value = sections.value.filter((el) => {
+          return el.series.id === id;
+        });
+      } else {
+        fSections.value = sections.value;
+      }
     };
     const findMySections = () => {
       fSections.value = sections.value.filter((el) => {

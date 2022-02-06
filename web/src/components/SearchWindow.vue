@@ -2,14 +2,39 @@
   <div class="w-full px-3">
     <div class="flex justify-between w-full p-3 bg-gray-700">
       <div class="flex">
-        <form class="search_container">
+        <form v-if="!isSelectMode" class="search_container">
           <input type="text" @input="onInput" :value="modelValue" />
           <button @click.prevent="onSubmit">
             <font-awesome-icon :icon="faSearch" />
           </button>
         </form>
-        <button v-if="series" class="mr-1 btn btn-sub-white text-md">
-          シリーズ別
+        <select
+          class="px-2 mr-2 text-gray-700 rounded-md"
+          v-if="series && isSelectMode"
+          v-model="selectedSeries"
+        >
+          <option :value="0">全てのシリーズのセクションを表示</option>
+          <option
+            v-for="oneSeries in series"
+            :key="oneSeries.id"
+            :value="oneSeries.id"
+          >
+            {{ oneSeries.name }}
+          </option>
+        </select>
+        <button
+          v-if="series && !isSelectMode"
+          class="mr-1 btn btn-sub-white text-md"
+          @click="() => toggleSelectMode(true)"
+        >
+          シリーズ検索
+        </button>
+        <button
+          v-if="isSelectMode"
+          class="mr-1 btn btn-sub-white text-md"
+          @click="() => toggleSelectMode(false)"
+        >
+          タイトル検索
         </button>
         <button
           v-if="isMessage === false"
@@ -18,7 +43,11 @@
         >
           自作のみ
         </button>
-        <button class="mr-1 btn btn-sub-white text-md" @click="showAll">
+        <button
+          v-if="!isSelectMode"
+          class="mr-1 btn btn-sub-white text-md"
+          @click="showAll"
+        >
           全て表示
         </button>
         <button
@@ -45,7 +74,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { ref, watch, defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import {
   faPlus,
@@ -56,8 +85,24 @@ export default defineComponent({
   name: 'SearchWindow',
   components: { FontAwesomeIcon },
   props: ['modelValue', 'series', 'goBackPath', 'addPath', 'isMessage'],
-  emits: ['show-all', 'filter-mine', 'on-input', 'on-submit', 'filter-new'],
+  emits: [
+    'show-all',
+    'filter-mine',
+    'on-input',
+    'on-submit',
+    'filter-new',
+    'change-series',
+  ],
   setup(_, { emit }) {
+    const selectedSeries = ref(0);
+    const isSelectMode = ref(false);
+    const toggleSelectMode = (value: boolean) => {
+      isSelectMode.value = value;
+      selectedSeries.value = 0;
+    };
+    watch(selectedSeries, () => {
+      emit('change-series', selectedSeries.value);
+    });
     const showAll = () => {
       emit('show-all');
     };
@@ -82,6 +127,9 @@ export default defineComponent({
       filterNew,
       onInput,
       onSubmit,
+      isSelectMode,
+      toggleSelectMode,
+      selectedSeries,
     };
   },
 });
