@@ -17,7 +17,7 @@ export default defineComponent({
     FontAwesomeIcon,
   },
   setup(_, { emit }) {
-    const onInput = (e) => {
+    const onInput = (e: { target: HTMLButtonElement }) => {
       emit('on-input', e.target.value);
     };
     const onSubmit = () => {
@@ -34,11 +34,9 @@ export default defineComponent({
 <style scoped>
 .search_container {
   box-sizing: border-box;
-  @apply text-gray-700 rounded-full relative bg-gray-100;
+  @apply text-gray-700 rounded-md relative bg-gray-100;
   width: 15rem;
   display: block;
-  /* border-radius: 20px;
-  height: 2.3em; */
   overflow: hidden;
 }
 .search_container input {
@@ -51,7 +49,7 @@ export default defineComponent({
 .search_container button {
   cursor: pointer;
   border: none;
-  @apply absolute right-3;
+  @apply absolute right-2;
   outline: none;
 }
 </style>

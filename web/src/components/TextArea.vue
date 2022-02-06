@@ -26,7 +26,7 @@ export default defineComponent({
     const type = computed(() => {
       return props.id.includes('password') ? 'password' : 'text';
     });
-    const onInput = (e) => {
+    const onInput = (e: { target: HTMLButtonElement }) => {
       emit('custom-input', e.target.value);
     };
     const testid = computed(() => `${props.id}-input`);
