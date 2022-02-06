@@ -11,11 +11,22 @@
         <button v-if="series" class="mr-1 btn btn-sub-white text-md">
           シリーズ別
         </button>
-        <button class="mr-1 btn btn-sub-white text-md" @click="filterMine">
+        <button
+          v-if="isMessage === false"
+          class="mr-1 btn btn-sub-white text-md"
+          @click="filterMine"
+        >
           自作のみ
         </button>
         <button class="mr-1 btn btn-sub-white text-md" @click="showAll">
           全て表示
+        </button>
+        <button
+          v-if="isMessage === true"
+          class="mr-1 btn btn-sub-white text-md"
+          @click="filterNew"
+        >
+          未読のみ
         </button>
       </div>
       <div class="flex">
@@ -44,14 +55,17 @@ import {
 export default defineComponent({
   name: 'SearchWindow',
   components: { FontAwesomeIcon },
-  props: ['modelValue', 'series', 'goBackPath', 'addPath'],
-  emits: ['show-all', 'filter-mine', 'on-input', 'on-submit'],
+  props: ['modelValue', 'series', 'goBackPath', 'addPath', 'isMessage'],
+  emits: ['show-all', 'filter-mine', 'on-input', 'on-submit', 'filter-new'],
   setup(_, { emit }) {
     const showAll = () => {
       emit('show-all');
     };
     const filterMine = () => {
       emit('filter-mine');
+    };
+    const filterNew = () => {
+      emit('filter-new');
     };
     const onInput = (e: { target: HTMLButtonElement }) => {
       emit('on-input', e.target.value);
@@ -65,6 +79,7 @@ export default defineComponent({
       faSearch,
       showAll,
       filterMine,
+      filterNew,
       onInput,
       onSubmit,
     };

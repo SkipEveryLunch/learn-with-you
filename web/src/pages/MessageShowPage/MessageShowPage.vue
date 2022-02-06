@@ -1,6 +1,6 @@
 <template>
-  <div v-if="!isLoading" class="flex h-full">
-    <div class="flex flex-col w-1/3 px-4 py-3">
+  <div v-if="!isLoading" class="h-full">
+    <div class="flex flex-col w-full mx-2">
       <div
         class="pt-2 pb-3 text-4xl font-bold text-gray-700 cursor-pointer w-max"
         @click="showAllMessages"
@@ -11,25 +11,17 @@
           <span data-testid="unconfirmed">うち{{ unconfirmed }}件未読</span>
         </p>
       </div>
-      <div class="flex pr-1 mt-1 mb-2">
-        <SearchBox
-          @on-submit="filterNewMessages"
-          @on-input="onChangeSearch"
-          :modelValue="search"
-        />
-      </div>
-      <div class="flex flex-col ml-2">
-        <div class="sideRow" @click="filterNewMessages">
-          <p>未読のメッセージ</p>
-        </div>
-        <div class="sideRow">
-          <router-link data-testid="section-submit-link" to="/"
-            ><p>戻る</p></router-link
-          >
-        </div>
-      </div>
     </div>
-    <div v-if="fMessages.length > 0" class="w-full">
+    <SearchWindow
+      @on-submit="filterMessages"
+      @on-input="onChangeSearch"
+      @filter-new="filterNewMessages"
+      @show-all="showAllMessages"
+      :modelValue="search"
+      :isMessage="true"
+      goBackPath="/"
+    />
+    <div v-if="fMessages.length > 0" class="w-full px-5">
       <Paginator :page="page" :lastPage="lastPage" />
       <transition-group
         tag="ul"
@@ -68,10 +60,10 @@ import Spinner from '../../components/Spinner.vue';
 import axios from 'axios';
 import gsap from 'gsap';
 import MessageCard from '../../components/MessageCard.vue';
-import SearchBox from '../../components/SearchBox.vue';
+import SearchWindow from '../../components/SearchWindow.vue';
 export default defineComponent({
   name: 'MessageShowPage',
-  components: { Spinner, SearchBox, MessageCard, Paginator },
+  components: { Spinner, SearchWindow, MessageCard, Paginator },
   setup() {
     const store = useStore();
     const isLoading = ref(true);
