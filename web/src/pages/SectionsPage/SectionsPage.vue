@@ -12,6 +12,7 @@
       @filter-mine="findMySections"
       @change-series="(id) => filterBySeries(id)"
       :modelValue="search"
+      :isMessage="false"
     />
     <div v-if="!isLoading" class="px-5">
       <div

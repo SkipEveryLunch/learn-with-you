@@ -17,6 +17,7 @@
           @show-all="showAllQuestions"
           @filter-mine="findMyQuestions"
           :modelValue="search"
+          :isMessage="false"
         />
       </div>
     </div>
