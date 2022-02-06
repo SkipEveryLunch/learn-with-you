@@ -1,0 +1,37 @@
+name: Deploy LearnWithYou
+on:
+  push:
+    branches:
+      - deploy
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+      # - run: docker build -t cygnetops/react-test -f ./client/Dockerfile.dev ./client
+      # - run: docker run -e CI=true cygnetops/react-test npm test
+
+      - run: docker build -t skipeverylunch/learnwithyou-api-10-14 ./api
+      - run: docker build -t skipeverylunch/learnwithyou-web-10-14 ./web
+      - run: docker build -t skipeverylunch/learnwithyou-nginx-10-14 ./nginx
+
+      - run: docker push skipeverylunch/learnwithyou-api-10-14
+      - run: docker push skipeverylunch/learnwithyou-web-10-14
+      - run: docker push skipeverylunch/learnwithyou-nginx-10-14
+
+      - name: Generate deployment package
+        run: zip -r deploy.zip . -x '*.git*'
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v18
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: learn-with-you
+          environment_name: Learnwithyou-env
+          existing_bucket_name: elasticbeanstalk-ap-northeast-1-847655304158
+          region: ap-northeast-1
+          version_label: ${{ github.sha }}
+          deployment_package: deploy.zip
