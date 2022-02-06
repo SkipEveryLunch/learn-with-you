@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="w-full h-full">
     <SearchWindow
       :series="series"
       addPath="/section_submit"
