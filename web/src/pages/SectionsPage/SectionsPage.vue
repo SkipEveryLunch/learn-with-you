@@ -1,69 +1,45 @@
 <template>
-  <div v-if="!isLoading" class="flex h-full">
-    <div class="flex flex-col w-1/3 px-4 py-3">
+  <div>
+    <SearchWindow
+      :series="series"
+      addPath="/section_submit"
+      @on-input="onChangeSearch"
+      @on-submit="filterSections"
+      @show-all="showAllSections"
+      @filter-mine="findMySections"
+      :modelValue="search"
+    />
+    <div v-if="!isLoading" class="px-5">
       <div
-        class="pt-2 pb-3 text-3xl font-bold text-gray-700 cursor-pointer w-max"
-        @click="showAllSections"
+        v-if="fSections.length > 0"
+        data-testid="section-page"
+        class="w-full"
       >
-        セクション一覧
-      </div>
-      <div class="flex pr-1 mt-1 mb-2">
-        <SearchBox
-          @on-input="onChangeSearch"
-          @on-submit="filterSections"
-          :modelValue="search"
-        />
-      </div>
-      <div class="flex flex-col ml-2">
-        <div class="sideRow">
-          <router-link
-            v-if="user"
-            to="section_submit"
-            data-testid="section-submit-link"
-            ><span>新規セクション作成</span></router-link
-          >
-        </div>
-
-        <div @click="findMySections" class="sideRow" v-if="user">
-          <span>投稿したセクション</span>
-        </div>
-        <div v-if="series.length > 0">
-          <div
-            v-for="(aSeries, idx) in series"
-            :key="idx"
-            class="sideRow"
-            @click="() => filterBySeries(aSeries.id)"
-          >
-            <span>{{ aSeries.name }}</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-if="fSections.length > 0" data-testid="section-page" class="w-full">
-      <Paginator :page="page" :lastPage="lastPage" />
-      <transition-group
-        tag="ul"
-        appear
-        class="flex flex-col scroller"
-        @before-enter="beforeEnter"
-        @enter="enter"
-      >
-        <li
-          data-testid="section-card"
-          v-for="(section, idx) in sSections"
-          :key="section.id"
-          :data-idx="idx"
+        <Paginator :page="page" :lastPage="lastPage" />
+        <transition-group
+          tag="ul"
+          appear
+          class="flex flex-col scroller"
+          @before-enter="beforeEnter"
+          @enter="enter"
         >
-          <SectionCard :section="section" />
-        </li>
-      </transition-group>
+          <li
+            data-testid="section-card"
+            v-for="(section, idx) in sSections"
+            :key="section.id"
+            :data-idx="idx"
+          >
+            <SectionCard :section="section" />
+          </li>
+        </transition-group>
+      </div>
+      <div v-else class="flex items-center justify-center w-full">
+        <div class="text-xl text-gray-200">セクションがありません</div>
+      </div>
     </div>
-    <div v-else class="flex items-center justify-center w-full">
-      <div class="text-xl text-gray-200">セクションがありません</div>
+    <div v-else class="w-full h-full">
+      <Spinner />
     </div>
-  </div>
-  <div v-else class="w-full h-full">
-    <Spinner />
   </div>
 </template>
 <script lang="ts">
@@ -75,14 +51,14 @@ import axios from 'axios';
 import { Section, Series } from '../../types';
 import Spinner from '../../components/Spinner.vue';
 import SectionCard from '../../components/SectionCard.vue';
-import SearchBox from '../../components/SearchBox.vue';
+import SearchWindow from '../../components/SearchWindow.vue';
 import Paginator from '../../components/Paginator.vue';
 export default defineComponent({
   name: 'SectionsPage',
   components: {
     Spinner,
     SectionCard,
-    SearchBox,
+    SearchWindow,
     Paginator,
   },
   setup() {
