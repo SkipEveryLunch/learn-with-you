@@ -63,7 +63,7 @@ export default defineComponent({
         ? `${store.state.user.first_name} ${store.state.user.last_name} `
         : '';
     });
-    const toggleDropDown = (isShown) => {
+    const toggleDropDown = (isShown:boolean) => {
       store.dispatch('toggleDropDown', isShown);
     };
 
