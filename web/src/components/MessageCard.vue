@@ -1,5 +1,5 @@
 <template>
-  <div class="card" data-testId="message-card">
+  <div class="card bg-front text-normal" data-testId="message-card">
     <div class="flex flex-col w-full p-3">
       <div class="flex items-center mb-1">
         <div>
@@ -49,7 +49,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply flex p-2 mb-2 text-gray-100 bg-gray-700 rounded;
+  @apply flex p-2 mb-2 rounded;
   min-height: 120px;
 }
 </style>

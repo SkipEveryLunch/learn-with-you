@@ -1,12 +1,22 @@
 <template>
   <div
     data-testid="modal"
-    class="fixed z-20 flex items-center justify-center w-full h-full transition-opacity bg-gray-900  bg-opacity-40"
+    class="
+      fixed
+      z-20
+      flex
+      items-center
+      justify-center
+      w-full
+      h-full
+      transition-opacity
+      bg-gray-900 bg-opacity-40
+    "
     v-if="!isLoading"
   >
     <transition name="modalbox" appear>
       <div class="modal">
-        <div class="py-2 pl-5 text-gray-100 bg-blue-700">コメントの投稿</div>
+        <div class="py-2 pl-5 text-normal bg-blue-700">コメントの投稿</div>
         <div class="flex flex-col m-5">
           <div class="flex flex-col">
             <div>

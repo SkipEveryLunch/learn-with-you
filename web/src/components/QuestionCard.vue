@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-10 card">
+  <div class="grid grid-cols-10 card bg-front">
     <div class="flex flex-col justify-center col-span-8">
       <div class="pb-2 border-u">
         <p>{{ question.front }}</p>
@@ -10,7 +10,12 @@
     </div>
     <div class="grid grid-cols-10 col-span-2 grid-rows-10">
       <div
-        class="col-span-4 col-start-2 row-span-3 row-start-1 text-sm  whitespace-nowrap"
+        class="
+          col-span-4 col-start-2
+          row-span-3 row-start-1
+          text-sm
+          whitespace-nowrap
+        "
       >
         <p>
           レベル:
@@ -31,7 +36,13 @@
       <div
         v-if="isAbleToSeeComments"
         data-testid="edit-buttons"
-        class="flex items-center justify-center col-span-8 col-start-3 row-span-1  row-start-9"
+        class="
+          flex
+          items-center
+          justify-center
+          col-span-8 col-start-3
+          row-span-1 row-start-9
+        "
       >
         <router-link
           :to="`/section/${question.section_id}/question/${question.id}/edit`"
@@ -144,7 +155,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply p-3 mb-2 bg-gray-700 rounded w-full;
+  @apply p-3 mb-2 rounded w-full;
   min-height: 120px;
 }
 .border-u {

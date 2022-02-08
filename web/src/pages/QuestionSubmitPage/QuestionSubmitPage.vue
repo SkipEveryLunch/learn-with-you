@@ -8,7 +8,7 @@
       <div>
         <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">問題の投稿</h1>
       </div>
-      <div class="w-1/3 p-5 bg-gray-700 rounded pr-7">
+      <div class="w-1/3 p-5 bg-front rounded pr-7">
         <TextArea
           row="4"
           id="front"

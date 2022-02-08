@@ -71,14 +71,14 @@ export default defineComponent({
     };
     const isBoxLight = (bool: boolean) => {
       if (bool) {
-        return 'text-gray-100 border-gray-100 hover:bg-gray-500 cursor-default';
+        return 'text-normal border-gray-100 hover:bg-gray-500 cursor-default';
       } else {
         return 'text-gray-400 border-gray-400 cursor-pointer';
       }
     };
     const isArrowLight = (bool: boolean) => {
       if (bool) {
-        return 'text-gray-100 border-gray-100 hover:bg-gray-500 cursor-pointer';
+        return 'text-normal border-gray-100 hover:bg-gray-500 cursor-pointer';
       } else {
         return 'text-gray-400 border-gray-400 cursor-default';
       }

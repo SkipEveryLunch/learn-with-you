@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-10 card">
+  <div class="grid grid-cols-10 card bg-front text-normal">
     <div class="flex items-center col-span-3 p-3">
       <p class="text-2xl">{{ section.title }}</p>
     </div>
@@ -39,7 +39,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply w-full pl-2 py-3 mb-2 text-gray-100 bg-gray-700 rounded justify-around;
+  @apply w-full pl-2 py-3 mb-2 rounded justify-around;
   min-height: 90px;
 }
 .slide-enter-from {

@@ -1,5 +1,14 @@
 <template>
-  <div class="flex flex-col h-screen">
+  <div
+    class="
+      flex flex-col
+      h-screen
+      bg-gray-300
+      dark:bg-back
+      text-gray-700
+      dark:text-normal;
+    "
+  >
     <transition name="modal" appear>
       <Modal v-if="modal" :modal="modal" />
     </transition>

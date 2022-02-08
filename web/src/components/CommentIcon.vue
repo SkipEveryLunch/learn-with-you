@@ -7,7 +7,7 @@
   </div>
 </template>
 <script lang="ts">
-import { computed ,defineComponent} from 'vue';
+import { computed, defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 export default defineComponent({
@@ -22,7 +22,7 @@ export default defineComponent({
       emit('comment');
     };
     const colorClass = computed(() => {
-      return props.isCommented ? 'text-gray-100' : 'text-gray-400';
+      return props.isCommented ? 'text-normal' : 'text-gray-400';
     });
     return {
       faCommentDots,

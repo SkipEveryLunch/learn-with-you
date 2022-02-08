@@ -1,10 +1,7 @@
 <template>
   <div class="flex items-center h-full justfy-center">
-    <div
-      v-if="section"
-      class="flex flex-col p-5 mx-auto bg-gray-700 rounded-lg"
-    >
-      <div class="mb-5 text-center text-gray-100">
+    <div v-if="section" class="flex flex-col p-5 mx-auto bg-front rounded-lg">
+      <div class="mb-5 text-center text-normal">
         <h1 class="mb-2 text-2xl">{{ section.title }}</h1>
         <p class="descriptionContainer">
           {{ section.description }}

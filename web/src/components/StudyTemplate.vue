@@ -1,7 +1,7 @@
 <template>
   <div
     data-testid="question-window"
-    class="py-4 m-4 text-gray-100 bg-gray-700 rounded-lg px-7"
+    class="py-4 m-4 text-normal bg-front rounded-lg px-7"
   >
     <p class="mb-3 text-center">{{ progress + 1 }}/{{ questions.length }}</p>
     <FlipCard

@@ -8,6 +8,6 @@ export default {
 </script>
 <style>
 html {
-  @apply h-screen bg-gray-500 text-gray-100;
+  @apply h-screen;
 }
 </style>

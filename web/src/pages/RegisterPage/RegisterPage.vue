@@ -3,7 +3,7 @@
     <div>
       <h1 class="mt-5 text-4xl font-bold text-gray-700 mb-7">新規登録</h1>
     </div>
-    <div class="w-1/3 p-5 bg-gray-700 rounded pr-7">
+    <div class="w-1/3 p-5 bg-front rounded pr-7">
       <Input
         id="first-name"
         name="名字"

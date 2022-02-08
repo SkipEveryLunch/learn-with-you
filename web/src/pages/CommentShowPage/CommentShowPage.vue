@@ -8,7 +8,7 @@
     </div>
     <div v-if="fComments.length > 0 && question" class="w-full">
       <div class="px-3">
-        <div class="flex flex-col card">
+        <div class="flex flex-col card bg-front">
           <div class="w-full">
             <div class="p-2 pb-4">
               <p>質問: {{ question.front }}</p>
@@ -183,7 +183,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply p-3 mb-2 bg-gray-700 rounded flex w-full;
+  @apply p-3 mb-2 rounded flex w-full;
 }
 .search_container {
   box-sizing: border-box;

@@ -8,7 +8,7 @@
     <div
       data-testid="section-submit-page"
       v-if="user"
-      class="w-1/3 p-5 bg-gray-700 rounded pr-7"
+      class="w-1/3 p-5 bg-front rounded pr-7"
     >
       <Input
         id="title"

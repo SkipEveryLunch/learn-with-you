@@ -1,12 +1,12 @@
 <template>
   <div class="flex items-center w-full mb-2">
     <div class="mr-2">
-      <div class="p-2 text-center bg-gray-700 rounded-full w-14 h-14">
-        <font-awesome-icon class="text-gray-100 fa-2x" :icon="faUser" />
+      <div class="p-2 text-center rounded-full bg-front w-14 h-14">
+        <font-awesome-icon class="text-normal fa-2x" :icon="faUser" />
       </div>
     </div>
     <div class="triangle"></div>
-    <div class="card" data-testId="comment-card">
+    <div class="card bg-front text-normal" data-testId="comment-card">
       <div class="flex w-full px-5 py-3">
         <div class="flex flex-col pr-2">
           <div class="mb-1">
@@ -77,7 +77,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply w-full text-gray-100 bg-gray-700 rounded;
+  @apply w-full rounded;
 }
 .triangle {
   height: 15px;

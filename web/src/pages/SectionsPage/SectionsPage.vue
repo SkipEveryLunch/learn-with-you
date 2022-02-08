@@ -154,19 +154,3 @@ export default defineComponent({
   },
 });
 </script>
-<style scoped>
-.column {
-  width: 20rem;
-}
-.formInput {
-  @apply w-full focus:outline-none;
-  border-top-left-radius: 0.15em;
-  border-bottom-left-radius: 0.15em;
-}
-.formButton {
-  @apply text-gray-100;
-  padding: 3px 3px 3px 3px;
-  border-top-right-radius: 0.15em;
-  border-bottom-right-radius: 0.15em;
-}
-</style>

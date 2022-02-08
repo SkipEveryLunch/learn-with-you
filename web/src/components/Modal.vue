@@ -1,11 +1,21 @@
 <template>
   <div
     data-testid="modal"
-    class="fixed z-20 flex items-center justify-center w-full h-full transition-opacity bg-gray-900  bg-opacity-40"
+    class="
+      fixed
+      z-20
+      flex
+      items-center
+      justify-center
+      w-full
+      h-full
+      transition-opacity
+      bg-gray-900 bg-opacity-40
+    "
   >
     <transition name="modalbox" appear>
       <div class="modal">
-        <div class="py-2 pl-5 text-gray-100 bg-blue-700">{{ typeName }}</div>
+        <div class="py-2 pl-5 text-normal bg-blue-700">{{ typeName }}</div>
         <div class="p-5">
           <p v-for="(msg, idx) in modal.messages" :key="idx">{{ msg }}</p>
         </div>
