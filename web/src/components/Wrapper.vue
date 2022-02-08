@@ -4,7 +4,7 @@
       flex flex-col
       h-screen
       bg-gray-300
-      dark:bg-back
+      dark:bg-gray-500
       text-gray-700
       dark:text-normal;
     "

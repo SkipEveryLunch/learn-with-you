@@ -10,6 +10,7 @@
         </router-link>
       </div>
     </div>
+    <ToggleDarkButton />
     <div v-if="name.length === 0">
       <div class="flex items-center px-2 py-3">
         <router-link
@@ -50,9 +51,10 @@ import ProfileDropDown from '../ProfileDropDown.vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../assets/Logo.vue';
+import ToggleDarkButton from '../ToggleDarkButton.vue';
 export default defineComponent({
   name: 'Header',
-  components: { ProfileDropDown, FontAwesomeIcon, Logo },
+  components: { ProfileDropDown, FontAwesomeIcon, Logo, ToggleDarkButton },
   setup() {
     const store = useStore();
     const showDropDown = computed(() => {
