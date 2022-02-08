@@ -8,7 +8,6 @@ export default createStore({
     commentModal: null,
     sectionReloader: false,
     showDropDown: false,
-    isDarkMode: false,
   },
   mutations: {
     SET_USER: (state, user) => {
@@ -39,9 +38,6 @@ export default createStore({
     TOGGLE_DROP_DOWN: (state, isShown) => {
       state.showDropDown = isShown;
     },
-    TOGGLE_IS_DARK_MODE: (state) => {
-      state.isDarkMode = !state.isDarkMode;
-    },
   },
   actions: {
     setUser: ({ commit }, user) => {
@@ -70,9 +66,6 @@ export default createStore({
     },
     toggleDropDown: ({ commit }, isShown) => {
       commit('TOGGLE_DROP_DOWN', isShown);
-    },
-    toggleIsDarkMode: ({ commit }) => {
-      commit('TOGGLE_IS_DARK_MODE');
     },
   },
 });
