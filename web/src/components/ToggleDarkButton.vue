@@ -30,11 +30,16 @@
 import { ref, watch, defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { useStore } from 'vuex';
 export default defineComponent({
   name: 'ToggleDarkButton',
   components: { FontAwesomeIcon },
   setup() {
     const isDarkMode = ref(false);
+    const store = useStore();
+    watch(isDarkMode, (val) => {
+      store.dispatch('toggleIsDarkMode', val);
+    });
     const toggleIsDarkMode = () => {
       isDarkMode.value = !isDarkMode.value;
     };

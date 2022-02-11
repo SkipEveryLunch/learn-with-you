@@ -7,9 +7,10 @@
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent, watch } from 'vue';
+import { computed, defineComponent } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
+import { useStore } from 'vuex';
 export default defineComponent({
   name: 'CommentIcon',
   props: ['count', 'isCommented'],
@@ -18,8 +19,9 @@ export default defineComponent({
     FontAwesomeIcon,
   },
   setup(props, { emit }) {
+    const store = useStore();
     const isDarkMode = computed(() => {
-      return document.body.classList.contains('dark');
+      return store.state.isDarkMode;
     });
     const onComment = () => {
       emit('comment');
@@ -45,6 +47,10 @@ export default defineComponent({
 }
 .count-dark {
   color: rgb(245, 245, 245);
+  text-shadow: 2px 2px 1px rgb(64, 64, 64), -2px 2px 1px rgb(64, 64, 64),
+    2px -2px 1px rgb(64, 64, 64), -2px -2px 1px rgb(64, 64, 64),
+    2px 0px 1px rgb(64, 64, 64), 0px 2px 1px rgb(64, 64, 64),
+    -2px 0px 1px rgb(64, 64, 64), 0px -2px 1px rgb(64, 64, 64);
   position: absolute;
   left: 20px;
   top: 5px;
