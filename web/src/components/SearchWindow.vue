@@ -148,13 +148,12 @@ export default defineComponent({
 <style scoped>
 .search_container {
   box-sizing: border-box;
-  @apply text-gray-700 rounded-md relative bg-gray-100 mr-2;
+  @apply text-gray-700 rounded-md relative mr-2 border border-gray-400;
   width: 15rem;
   display: block;
   overflow: hidden;
 }
 .search_container input {
-  border: none;
   @apply bg-gray-100 w-full p-1 pl-2;
 }
 .search_container input:focus {
