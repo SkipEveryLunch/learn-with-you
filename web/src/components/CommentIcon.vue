@@ -3,11 +3,11 @@
     <div>
       <font-awesome-icon class="fa-lg" :icon="faCommentDots" />
     </div>
-    <span class="count">{{ count }}</span>
+    <span :class="[isDarkMode ? 'count-dark' : 'count']">{{ count }}</span>
   </div>
 </template>
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, watch } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 export default defineComponent({
@@ -18,25 +18,33 @@ export default defineComponent({
     FontAwesomeIcon,
   },
   setup(props, { emit }) {
+    const isDarkMode = computed(() => {
+      return document.body.classList.contains('dark');
+    });
     const onComment = () => {
       emit('comment');
     };
     const colorClass = computed(() => {
-      return props.isCommented ? 'text-normal' : 'text-gray-400';
+      return props.isCommented ? 'text-blue-500' : 'text-gray-300';
     });
     return {
       faCommentDots,
       onComment,
       colorClass,
+      isDarkMode,
     };
   },
 });
 </script>
 <style scoped>
 .count {
-  text-shadow: 2px 2px 0 black, -2px -2px 0 black, -2px 2px 0 black,
-    2px -2px 0 black, 0px 2px 0 black, 0-2px 0 black, -2px 0 0 black,
-    2px 0 0 black;
+  color: rgb(64, 64, 64);
+  position: absolute;
+  left: 20px;
+  top: 5px;
+}
+.count-dark {
+  color: rgb(245, 245, 245);
   position: absolute;
   left: 20px;
   top: 5px;
