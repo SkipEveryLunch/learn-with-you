@@ -10,38 +10,44 @@
         </router-link>
       </div>
     </div>
-    <ToggleDarkButton />
-    <div v-if="name.length === 0">
-      <div class="flex items-center px-2 py-3">
-        <router-link
-          data-testid="login-link"
-          to="/login"
-          class="px-2 py-1 mr-3 rounded-md hover:bg-gray-600"
-          >ログイン</router-link
+    <div class="flex">
+      <ToggleDarkButton class="mr-3" />
+      <div v-if="name.length === 0">
+        <div class="flex items-center px-2 py-3">
+          <router-link
+            data-testid="login-link"
+            to="/login"
+            class="px-2 py-1 mr-3 rounded-md hover:bg-gray-600"
+            >ログイン</router-link
+          >
+          <router-link to="/register" class="px-2 py-1 text-lg btn btn-primary"
+            >新規登録</router-link
+          >
+        </div>
+      </div>
+      <div v-else class="relative flex items-center px-2 py-3">
+        <div
+          class="flex px-2 rounded-md hover:bg-gray-600"
+          @click="() => toggleDropDown(!showDropDown)"
+          data-testid="profile-menu"
         >
-        <router-link to="/register" class="px-2 py-1 text-lg btn btn-primary"
-          >新規登録</router-link
-        >
+          <span class="py-1 mr-2 cursor-pointer">
+            {{ name }}
+          </span>
+          <span class="mt-1 ml-1 text-sm arrow" :class="{ up: showDropDown }">
+            <font-awesome-icon class="fa-lg" :icon="faChevronDown" />
+          </span>
+        </div>
+        <transition name="dropdown" appear>
+          <ProfileDropDown
+            v-if="showDropDown"
+            :toggleDropDown="toggleDropDown"
+          />
+        </transition>
       </div>
     </div>
+
     <!-- <div v-else class="flex items-center"> -->
-    <div v-else class="relative flex items-center px-2 py-3">
-      <div
-        class="flex px-2 rounded-md hover:bg-gray-600"
-        @click="() => toggleDropDown(!showDropDown)"
-        data-testid="profile-menu"
-      >
-        <span class="py-1 mr-2 cursor-pointer">
-          {{ name }}
-        </span>
-        <span class="mt-1 ml-1 text-sm arrow" :class="{ up: showDropDown }">
-          <font-awesome-icon class="fa-lg" :icon="faChevronDown" />
-        </span>
-      </div>
-      <transition name="dropdown" appear>
-        <ProfileDropDown v-if="showDropDown" :toggleDropDown="toggleDropDown" />
-      </transition>
-    </div>
   </nav>
 </template>
 <script lang="ts">
