@@ -17,10 +17,10 @@
           <router-link
             data-testid="login-link"
             to="/login"
-            class="px-2 py-1 mr-3 rounded-md hover:bg-gray-600"
+            class="mr-2 btn btn-sub-white"
             >ログイン</router-link
           >
-          <router-link to="/register" class="px-2 py-1 text-lg btn btn-primary"
+          <router-link to="/register" class="btn btn-primary"
             >新規登録</router-link
           >
         </div>
