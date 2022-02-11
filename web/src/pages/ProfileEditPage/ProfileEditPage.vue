@@ -86,13 +86,13 @@ export default defineComponent({
       email: ['メールアドレスが未入力です'],
     });
     const isCalling = ref(false);
-    const onChangeFirstName = (payload) => {
+    const onChangeFirstName = (payload: string) => {
       form.first_name = payload;
     };
-    const onChangeLastName = (payload) => {
+    const onChangeLastName = (payload: string) => {
       form.last_name = payload;
     };
-    const onChangeEmail = (payload) => {
+    const onChangeEmail = (payload: string) => {
       form.email = payload;
     };
     const user = computed(() => {

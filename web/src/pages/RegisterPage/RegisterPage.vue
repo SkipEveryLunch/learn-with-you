@@ -91,19 +91,19 @@ export default defineComponent({
       password_confirm: ['パスワード確認が未入力です'],
     });
     const isCalling = ref(false);
-    const onChangeFirstName = (payload) => {
+    const onChangeFirstName = (payload: string) => {
       form.first_name = payload;
     };
-    const onChangeLastName = (payload) => {
+    const onChangeLastName = (payload: string) => {
       form.last_name = payload;
     };
-    const onChangeEmail = (payload) => {
+    const onChangeEmail = (payload: string) => {
       form.email = payload;
     };
-    const onChangePassword = (payload) => {
+    const onChangePassword = (payload: string) => {
       form.password = payload;
     };
-    const onChangePasswordConfirm = (payload) => {
+    const onChangePasswordConfirm = (payload: string) => {
       form.password_confirm = payload;
     };
     watch(form, () => {

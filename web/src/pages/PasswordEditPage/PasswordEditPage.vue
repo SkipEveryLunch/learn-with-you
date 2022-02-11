@@ -3,7 +3,7 @@
     <div>
       <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">パスワード変更</h1>
     </div>
-    <div class="w-1/3 p-5 bg-front rounded pr-7">
+    <div class="w-1/3 p-5 rounded bg-front pr-7">
       <Input
         id="password"
         name="パスワード"
@@ -75,10 +75,10 @@ export default defineComponent({
       password_confirm: ['パスワード確認が未入力です'],
     });
     const isCalling = ref(false);
-    const onChangePassword = (payload) => {
+    const onChangePassword = (payload: string) => {
       form.password = payload;
     };
-    const onChangePasswordConfirm = (payload) => {
+    const onChangePasswordConfirm = (payload: string) => {
       form.password_confirm = payload;
     };
     watch(form, () => {

@@ -81,10 +81,10 @@ export default defineComponent({
       back: ['解答が未入力です'],
     });
     const isCalling = ref(false);
-    const onChangeFront = (payload) => {
+    const onChangeFront = (payload: string) => {
       form.front = payload;
     };
-    const onChangeBack = (payload) => {
+    const onChangeBack = (payload: string) => {
       form.back = payload;
     };
     const user = computed(() => {
