@@ -2,11 +2,11 @@
   <div class="flex items-center justify-center h-full" data-testid="spinner">
     <div>
       <font-awesome-icon
-        class="mr-3 text-blue-600 dark:text-blue-200 fa-2x fa-spin"
+        class="mr-3 text-gray-500 dark:text-blue-200 fa-2x fa-spin"
         :icon="faSpinner"
       />
     </div>
-    <p class="text-2xl text-center text-blue-600 dark:text-blue-200 flicker">
+    <p class="text-2xl text-center text-gray-500 dark:text-blue-200 flicker">
       Loading...
     </p>
   </div>
