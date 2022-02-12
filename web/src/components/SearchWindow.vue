@@ -8,20 +8,19 @@
             <font-awesome-icon :icon="faSearch" />
           </button>
         </form>
-        <select
-          class="px-2 mr-2 text-gray-700 rounded-md"
-          v-if="series && isSelectMode"
-          v-model="selectedSeries"
-        >
-          <option :value="0">全てのシリーズのセクションを表示</option>
-          <option
-            v-for="oneSeries in series"
-            :key="oneSeries.id"
-            :value="oneSeries.id"
-          >
-            {{ oneSeries.name }}
-          </option>
-        </select>
+        <form v-if="series && isSelectMode" class="search_container">
+          <select v-model="selectedSeries">
+            <option :value="0">全てのシリーズのセクションを表示</option>
+            <option
+              v-for="oneSeries in series"
+              :key="oneSeries.id"
+              :value="oneSeries.id"
+            >
+              {{ oneSeries.name }}
+            </option>
+          </select>
+        </form>
+
         <button
           v-if="series && !isSelectMode"
           class="mr-1 btn btn-sub-white text-md"
@@ -167,5 +166,11 @@ export default defineComponent({
 }
 .search_container button:hover {
   @apply text-blue-600;
+}
+.search_container select {
+  @apply w-full p-1 pl-2;
+}
+.search_container select:focus {
+  outline: 0;
 }
 </style>
