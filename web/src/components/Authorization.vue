@@ -1,6 +1,6 @@
 <template>
-  <div class="h-full w-full">
-    <div v-if="user" class="h-full w-full">
+  <div class="w-full h-full">
+    <div v-if="user" class="w-full h-full">
       <router-view />
     </div>
     <div v-else></div>
@@ -22,7 +22,7 @@ export default defineComponent({
       if (!user.value) {
         store.dispatch('setModal', {
           type: 'error',
-          messages: ['ログインが！！必要です'],
+          messages: ['ログインが必要です'],
         });
         router.push('/');
       }
