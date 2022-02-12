@@ -1,6 +1,6 @@
 <template>
   <div class="w-full px-3">
-    <div class="flex justify-between w-full p-3 bg-front">
+    <div class="flex justify-between w-full p-3 rounded-sm bg-front">
       <div class="flex">
         <form v-if="!isSelectMode" class="search_container">
           <input type="text" @input="onInput" :value="modelValue" />
