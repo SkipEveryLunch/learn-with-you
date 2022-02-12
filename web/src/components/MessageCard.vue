@@ -8,9 +8,7 @@
           </span>
         </div>
         <div class="ml-1" v-if="!message.is_confirmed">
-          <span class="px-1 text-xs text-yellow-700 bg-yellow-300 rounded-sm">
-            new!</span
-          >
+          <Flag> new!</Flag>
         </div>
       </div>
       <div class="text-base">
@@ -32,6 +30,7 @@
 <script lang="ts">
 import { Message } from '../types';
 import { defineComponent } from 'vue';
+import Flag from './Flag.vue';
 interface MessageCardProps {
   message: Message;
 }
@@ -39,6 +38,7 @@ export default defineComponent({
   name: 'MessageCard',
   props: ['message'],
   emits: ['confirm'],
+  components: { Flag },
   setup(props: MessageCardProps, { emit }) {
     const onConfirm = () => {
       emit('confirm');

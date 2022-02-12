@@ -1,6 +1,11 @@
 <template>
   <div class="grid grid-cols-10 card bg-front text-normal">
     <div class="flex flex-col justify-center col-span-8">
+      <div class="flex">
+        <div v-if="isPostedByMe" class="mr-2">
+          <Flag>Posted</Flag>
+        </div>
+      </div>
       <div class="pb-2 border-u">
         <p>{{ question.front }}</p>
       </div>
@@ -56,6 +61,7 @@ import { useRouter } from 'vue-router';
 import axios from 'axios';
 import { Question } from '../types';
 import CommentIcon from './CommentIcon.vue';
+import Flag from './Flag.vue';
 interface QuestionCardProps {
   question: Question;
 }
@@ -64,6 +70,7 @@ export default defineComponent({
   emits: ['load'],
   components: {
     CommentIcon,
+    Flag,
   },
   setup(props: QuestionCardProps, { emit }: SetupContext) {
     const store = useStore();
@@ -71,10 +78,11 @@ export default defineComponent({
     const user = computed(() => {
       return store.state.user;
     });
+    const isPostedByMe = computed(() => {
+      return props.question.posted_by === user.value.id;
+    });
     const isAbleToSeeComments = computed(() => {
-      return (
-        props.question.posted_by === user.value.id || user.value.role.id === 1
-      );
+      return isPostedByMe.value || user.value.role.id === 1;
     });
     const isCommentedByMe = computed(() => {
       return props.question.commented_by.includes(user.value.id);
@@ -138,6 +146,7 @@ export default defineComponent({
       showModal,
       isAbleToSeeComments,
       isCommentedByMe,
+      isPostedByMe,
     };
   },
 });
