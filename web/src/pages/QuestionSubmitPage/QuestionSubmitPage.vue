@@ -8,7 +8,7 @@
       <div>
         <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">問題の投稿</h1>
       </div>
-      <div class="w-1/3 p-5 bg-front rounded pr-7">
+      <div class="w-1/3 p-5 rounded bg-front pr-7">
         <TextArea
           row="4"
           id="front"
@@ -69,6 +69,7 @@ import { useStore } from 'vuex';
 import { useRouter, useRoute } from 'vue-router';
 import TextArea from '../../components/TextArea.vue';
 import axios from 'axios';
+import { pushToArr, deleteFromArr } from '../../helper';
 export default defineComponent({
   name: 'QuestionSubmitPage',
   components: { TextArea },
@@ -124,16 +125,6 @@ export default defineComponent({
         deleteFromArr(errors.back, '解答は180字以内です');
       }
     });
-    const pushToArr = (arr, str) => {
-      if (!arr.includes(str)) {
-        arr.push(str);
-      }
-    };
-    const deleteFromArr = (arr, str) => {
-      if (arr.includes(str)) {
-        arr = arr.splice(arr.indexOf(str), 1);
-      }
-    };
     const onSubmit = async () => {
       isCalling.value = true;
       try {

@@ -3,7 +3,7 @@
     <div>
       <h1 class="mt-5 text-4xl font-bold text-gray-700 mb-7">ログイン</h1>
     </div>
-    <div class="w-1/3 p-5 bg-front rounded pr-7">
+    <div class="w-1/3 p-5 rounded bg-front pr-7">
       <Input
         id="email"
         name="メールアドレス"
@@ -48,6 +48,7 @@ import Input from '../../components/Input.vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import { pushToArr, deleteFromArr } from '../../helper';
 export default defineComponent({
   name: 'LoginPage',
   components: { Input },
@@ -88,16 +89,6 @@ export default defineComponent({
         deleteFromArr(errors.password, 'パスワードが未入力です');
       }
     });
-    const pushToArr = (arr: string[], str: string) => {
-      if (!arr.includes(str)) {
-        arr.push(str);
-      }
-    };
-    const deleteFromArr = (arr: string[], str: string) => {
-      if (arr.includes(str)) {
-        arr = arr.splice(arr.indexOf(str), 1);
-      }
-    };
     const disabled = computed(() => {
       return !(errors.email.length === 0 && errors.password.length === 0);
     });

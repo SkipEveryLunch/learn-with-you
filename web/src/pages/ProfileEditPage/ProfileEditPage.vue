@@ -5,7 +5,7 @@
         プロフィール編集
       </h1>
     </div>
-    <div class="w-1/3 p-5 bg-front rounded pr-7">
+    <div class="w-1/3 p-5 rounded bg-front pr-7">
       <Input
         id="first-name"
         name="名字"
@@ -69,6 +69,7 @@ import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import Input from '../../components/Input.vue';
 import axios from 'axios';
+import { pushToArr, deleteFromArr } from '../../helper';
 export default defineComponent({
   name: 'LoginPage',
   components: { Input },
@@ -142,16 +143,6 @@ export default defineComponent({
         deleteFromArr(errors.email, '正しいメールアドレスを入力して下さい');
       }
     });
-    const pushToArr = (arr, str) => {
-      if (!arr.includes(str)) {
-        arr.push(str);
-      }
-    };
-    const deleteFromArr = (arr, str) => {
-      if (arr.includes(str)) {
-        arr = arr.splice(arr.indexOf(str), 1);
-      }
-    };
     const onUpdate = async () => {
       isCalling.value = true;
       try {

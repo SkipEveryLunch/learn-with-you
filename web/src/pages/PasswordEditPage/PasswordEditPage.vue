@@ -60,6 +60,7 @@ import Input from '../../components/Input.vue';
 import axios from 'axios';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import { pushToArr, deleteFromArr } from '../../helper';
 export default defineComponent({
   name: 'LoginPage',
   components: { Input },
@@ -98,16 +99,6 @@ export default defineComponent({
         deleteFromArr(errors.password_confirm, 'パスワードと違います');
       }
     });
-    const pushToArr = (arr, str) => {
-      if (!arr.includes(str)) {
-        arr.push(str);
-      }
-    };
-    const deleteFromArr = (arr, str) => {
-      if (arr.includes(str)) {
-        arr = arr.splice(arr.indexOf(str), 1);
-      }
-    };
     onMounted(() => {
       if (!store.state.user) {
         router.push('/login');

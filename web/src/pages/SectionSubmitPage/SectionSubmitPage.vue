@@ -8,7 +8,7 @@
     <div
       data-testid="section-submit-page"
       v-if="user"
-      class="w-1/3 p-5 bg-front rounded pr-7"
+      class="w-1/3 p-5 rounded bg-front pr-7"
     >
       <Input
         id="title"
@@ -79,6 +79,7 @@ import axios from 'axios';
 import { Series } from '../../types';
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import { pushToArr, deleteFromArr } from '../../helper';
 export default defineComponent({
   name: 'LoginPage',
   components: { Input, TextArea },
@@ -124,16 +125,6 @@ export default defineComponent({
         deleteFromArr(errors.description, '説明文は100字以内です');
       }
     });
-    const pushToArr = (arr: string[], str: string) => {
-      if (!arr.includes(str)) {
-        arr.push(str);
-      }
-    };
-    const deleteFromArr = (arr: string[], str: string) => {
-      if (arr.includes(str)) {
-        arr = arr.splice(arr.indexOf(str), 1);
-      }
-    };
     const disabled = computed(() => {
       return !(errors.title.length === 0);
     });
