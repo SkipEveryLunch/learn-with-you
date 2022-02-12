@@ -5,6 +5,9 @@
         <div v-if="isPostedByMe" class="mr-2">
           <Flag>Posted</Flag>
         </div>
+        <div v-if="isCommentedByMe">
+          <Flag colorType="blue">Commented</Flag>
+        </div>
       </div>
       <div class="pb-2 border-u">
         <p>{{ question.front }}</p>
