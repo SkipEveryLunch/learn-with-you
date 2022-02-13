@@ -23,7 +23,7 @@ use App\Http\Controllers\CommentTypeController;
 
 Route::post("register",[AuthController::class,"register"]);
 Route::post("login",[AuthController::class,"login"]);
-Route::get("not_found",fn()=>"hello");
+Route::post("test_login",[AuthController::class,"testLogin"]);
 Route::apiResource('sections', SectionController::class, ['only' => ['index']]);
 Route::apiResource('series', SeriesController::class, ['only' => ['index']]);
 Route::apiResource('comment_types', CommentTypeController::class, ['only' => ['index']]);

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\CurrentUserResource;
 use Exception;
+use Config;
 
 class AuthController extends Controller
 {
@@ -40,6 +41,26 @@ class AuthController extends Controller
     }
     public function login(Request $req){
         if(!Auth::attempt($req->only("email","password"))){
+            return response([
+                "error" => "invalid credentials"
+            ],Response::HTTP_UNAUTHORIZED);
+        }
+        $user = Auth::user();
+        $jwt = $user->createToken("token")->plainTextToken;
+        $cookie = cookie(
+            "jwt",$jwt, 60 * 24
+        );
+        return response([
+            "jwt"=>$jwt,
+            "user"=>new CurrentUserResource($user)
+        ])->withCookie($cookie);
+    }
+    public function testLogin(){
+        $credentials = [
+            "email"=>"js@test.io",
+            "password" => config('values.user_password')
+        ];
+        if(!Auth::attempt($credentials)){
             return response([
                 "error" => "invalid credentials"
             ],Response::HTTP_UNAUTHORIZED);
