@@ -36,15 +36,45 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
+import axios from 'axios';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   name: 'ModalForTestLogin',
   setup() {
     const store = useStore();
+    const router = useRouter();
     const onClose = () => {
       store.dispatch('toggleModalForTestLogin', false);
     };
     const onTestLogin = async () => {
-      alert('test log in');
+      const {
+        data: { user },
+        status,
+      } = await axios.post('test_login');
+      if (status === 200 && user) {
+        router.push('/');
+        store.dispatch('setUser', user);
+        onClose();
+        const messages = [`おかえりなさい、${user.first_name}さん。`];
+        if (user.role.id === 1) {
+          messages.push('管理者権限でログインしました。');
+        }
+        if (user.unconfirmed_messages > 0) {
+          messages.push(
+            `${user.unconfirmed_messages}個の未読メッセージがあります`
+          );
+        }
+        setTimeout(() => {
+          store.dispatch('setModal', {
+            type: 'notification',
+            messages: messages,
+            cbAfter:
+              user.unconfirmed_messages > 0
+                ? () => store.dispatch('toggleDropDown', true)
+                : null,
+          });
+        }, 500);
+      }
     };
     return {
       onClose,
