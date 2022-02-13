@@ -46,8 +46,6 @@
         </transition>
       </div>
     </div>
-
-    <!-- <div v-else class="flex items-center"> -->
   </nav>
 </template>
 <script lang="ts">
