@@ -13,6 +13,9 @@
       <Modal v-if="modal" :modal="modal" />
     </transition>
     <transition name="modal" appear>
+      <ModalForTestLogin v-if="modalForTestLogin" />
+    </transition>
+    <transition name="modal" appear>
       <CommentModal
         v-if="commentModal"
         :questionId="commentModal.questionId"
@@ -28,6 +31,7 @@
 <script lang="ts">
 import Header from './Header/Header.vue';
 import Modal from './Modal.vue';
+import ModalForTestLogin from './ModalForTestLogin.vue';
 import CommentModal from './CommentModal.vue';
 import axios from 'axios';
 import { onMounted, computed, defineComponent } from 'vue';
@@ -37,6 +41,7 @@ export default defineComponent({
   components: {
     Header,
     Modal,
+    ModalForTestLogin,
     CommentModal,
   },
   setup() {
@@ -47,6 +52,9 @@ export default defineComponent({
       } else {
         return null;
       }
+    });
+    const modalForTestLogin = computed(() => {
+      return store.state.modalForTestLogin;
     });
     const commentModal = computed(() => {
       if (store.state.commentModal) {
@@ -64,11 +72,13 @@ export default defineComponent({
       } catch (e) {
         // await router.push('/login');
         store.dispatch('discardUser');
+        store.dispatch('toggleModalForTestLogin', true);
       }
     });
     return {
       modal,
       commentModal,
+      modalForTestLogin,
     };
   },
 });

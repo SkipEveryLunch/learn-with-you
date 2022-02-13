@@ -5,6 +5,7 @@ export default createStore({
     user: null,
     unconfirmed: 0,
     modal: null,
+    modalForTestLogin: false,
     commentModal: null,
     sectionReloader: false,
     showDropDown: false,
@@ -42,6 +43,9 @@ export default createStore({
     TOGGLE_IS_DARK_MODE: (state, isDarkMode) => {
       state.isDarkMode = isDarkMode;
     },
+    TOGGLE_MODAL_FOR_TEST_LOGIN: (state, isOpen) => {
+      state.modalForTestLogin = isOpen;
+    },
   },
   actions: {
     setUser: ({ commit }, user) => {
@@ -73,6 +77,9 @@ export default createStore({
     },
     toggleIsDarkMode: ({ commit }, isDarkMode) => {
       commit('TOGGLE_IS_DARK_MODE', isDarkMode);
+    },
+    toggleModalForTestLogin: ({ commit }, isOpen) => {
+      commit('TOGGLE_MODAL_FOR_TEST_LOGIN', isOpen);
     },
   },
 });
