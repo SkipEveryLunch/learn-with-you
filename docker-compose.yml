@@ -21,8 +21,6 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=admin
       - DB_USERNAME=root
-    depends_on:
-      - db
   web:
     stdin_open: true
     build:
