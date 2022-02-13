@@ -18,11 +18,9 @@ services:
       - ./api:/var/www/html
     environment:
       - DB_CONNECTION=mysql
-      - DB_HOST=db
       - DB_PORT=3306
       - DB_DATABASE=admin
       - DB_USERNAME=root
-      - DB_PASSWORD=root
     depends_on:
       - db
   db:
@@ -31,10 +29,6 @@ services:
     environment:
       MYSQL_DATABASE: admin
       MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./api/storage/dbdata:/var/lib/mysql
   web:
     stdin_open: true
     build:

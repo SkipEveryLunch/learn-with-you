@@ -24,7 +24,7 @@ services:
       - DB_PORT=3306
       - DB_DATABASE=admin
       - DB_USERNAME=root
-      - DB_PASSWORD=root
+      - DB_PASSWORD=rootpassword
       - USER_PASSWORD=12345678
     depends_on:
       - db
@@ -34,10 +34,8 @@ services:
     environment:
       MYSQL_DATABASE: admin
       MYSQL_USER: root
-      MYSQL_PASSWORD: root
-      MYSQL_ROOT_PASSWORD: root
-    volumes:
-      - ./api/storage/dbdata:/var/lib/mysql
+      MYSQL_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: rootpassword
   web:
     stdin_open: true
     build:
