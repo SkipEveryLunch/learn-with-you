@@ -23,12 +23,6 @@ services:
       - DB_USERNAME=root
     depends_on:
       - db
-  db:
-    container_name: db
-    image: mysql:5.7.22
-    environment:
-      MYSQL_DATABASE: admin
-      MYSQL_USER: root
   web:
     stdin_open: true
     build:
