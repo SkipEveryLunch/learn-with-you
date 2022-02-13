@@ -51,7 +51,6 @@
     </transition>
   </div>
 </template>
->
 <style scoped>
 .container {
   @apply w-40 h-8;
