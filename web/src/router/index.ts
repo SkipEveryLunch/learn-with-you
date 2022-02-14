@@ -1,25 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Wrapper from '../components/Wrapper.vue';
 import Authorization from '../components/Authorization.vue';
-import LoginPage from '../pages/LoginPage/LoginPage.vue';
-import RegisterPage from '../pages/RegisterPage/RegisterPage.vue';
-import ProfileShowPage from '../pages/ProfileShowPage/ProfileShowPage.vue';
-import PasswordEditPage from '../pages/PasswordEditPage/PasswordEditPage.vue';
-import ProfileEditPage from '../pages/ProfileEditPage/ProfileEditPage.vue';
-import SectionsPage from '../pages/SectionsPage/SectionsPage.vue';
-import SectionSubmitPage from '../pages/SectionSubmitPage/SectionSubmitPage.vue';
-import SectionEditPage from '../pages/SectionEditPage/SectionEditPage.vue';
-import QuestionSubmitPage from '../pages/QuestionSubmitPage/QuestionSubmitPage.vue';
-import QuestionEditPage from '../pages/QuestionEditPage/QuestionEditPage.vue';
-import CommentShowPage from '../pages/CommentShowPage/CommentShowPage.vue';
-import StudySelectPage from '../pages/StudySelectPage/StudySelectPage.vue';
-import StudyNewPage from '../pages/StudyNewPage/StudyNewPage.vue';
-import StudyReviewPage from '../pages/StudyReviewPage/StudyReviewPage.vue';
-import MessageShowPage from '../pages/MessageShowPage/MessageShowPage.vue';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage.vue';
 import axios from 'axios';
 axios.defaults.baseURL = `${process.env.VUE_APP_API_BASE}`;
 axios.defaults.withCredentials = true;
+import SectionsPage from '../pages/SectionsPage/SectionsPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -34,12 +19,12 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: '/login',
         name: 'LoginPage',
-        component: LoginPage,
+        component: () => import('../pages/LoginPage/LoginPage.vue'),
       },
       {
         path: '/register',
         name: 'RegisterPage',
-        component: RegisterPage,
+        component: () => import('../pages/RegisterPage/RegisterPage.vue'),
       },
 
       {
@@ -49,69 +34,80 @@ const routes: Array<RouteRecordRaw> = [
           {
             path: '/section/:sectionId/edit',
             name: 'SectionEdit',
-            component: SectionEditPage,
+            component: () =>
+              import('../pages/SectionEditPage/SectionEditPage.vue'),
           },
           {
             path: '/message_show',
             name: 'MessageShowPage',
-            component: MessageShowPage,
+            component: () =>
+              import('../pages/MessageShowPage/MessageShowPage.vue'),
           },
           {
             path: '/profile_show',
             name: 'ProfileShowPage',
-            component: ProfileShowPage,
+            component: () =>
+              import('../pages/ProfileShowPage/ProfileShowPage.vue'),
           },
           {
             path: '/profile_edit',
             name: 'ProfileEditPage',
-            component: ProfileEditPage,
+            component: () =>
+              import('../pages/ProfileEditPage/ProfileEditPage.vue'),
           },
           {
             path: '/password_edit',
             name: 'PasswordEditPage',
-            component: PasswordEditPage,
+            component: () =>
+              import('../pages/PasswordEditPage/PasswordEditPage.vue'),
           },
           {
             path: '/section_submit',
             name: 'SectionSubmitPage',
-            component: SectionSubmitPage,
+            component: () =>
+              import('../pages/SectionSubmitPage/SectionSubmitPage.vue'),
           },
           {
             path: '/section/:sectionId/study',
             name: 'StudySelectPage',
-            component: StudySelectPage,
+            component: () =>
+              import('../pages/StudySelectPage/StudySelectPage.vue'),
           },
           {
             path: '/section/:sectionId/study_new',
             name: 'StudyNewPage',
-            component: StudyNewPage,
+            component: () => import('../pages/StudyNewPage/StudyNewPage.vue'),
           },
           {
             path: '/section/:sectionId/study_review',
             name: 'StudyReviewPage',
-            component: StudyReviewPage,
+            component: () =>
+              import('../pages/StudyReviewPage/StudyReviewPage.vue'),
           },
 
           {
             path: '/section/:sectionId/submit',
             name: 'QuestionSubmitPage',
-            component: QuestionSubmitPage,
+            component: () =>
+              import('../pages/QuestionSubmitPage/QuestionSubmitPage.vue'),
           },
           {
             path: '/section/:sectionId/question/:questionId/edit',
             name: 'QuestionEditPage',
-            component: QuestionEditPage,
+            component: () =>
+              import('../pages/QuestionEditPage/QuestionEditPage.vue'),
           },
           {
             path: '/section/:sectionId/question/:questionId/comment',
             name: 'CommentShowPage',
-            component: CommentShowPage,
+            component: () =>
+              import('../pages/CommentShowPage/CommentShowPage.vue'),
           },
         ],
       },
       {
         path: '/:pathMatch(.*)*',
-        component: NotFoundPage,
+        component: () => import('../pages/NotFoundPage/NotFoundPage.vue'),
       },
     ],
   },
