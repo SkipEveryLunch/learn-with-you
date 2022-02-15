@@ -1,34 +1,25 @@
 version: '3'
 services:
   nginx:
-    depends_on:
-      - api
-      - web
-    restart: always
-    build:
-      context: ./nginx
+    image: skipeverylunch/learnwithyou-nginx-10-14
+    mem_limit: 128m
+    hostname: nginx
     ports:
-      - '3050:80'
+      - '80:80'
   api:
-    build:
-      context: ./api
-    ports:
-      - 9000:9000
-    volumes:
-      - ./api:/var/www/html
+    image: skipeverylunch/learnwithyou-api-10-14
+    mem_limit: 128m
+    hostname: api
     environment:
       - DB_CONNECTION=mysql
-      - DB_PORT=3306
-      - DB_DATABASE=admin
-      - DB_USERNAME=root
+      - DB_PORT=$DB_PORT
+      - DB_DATABASE=$DB_DATABASE
+      - DB_USERNAME=$DB_USERNAME
+      - DB_HOST=$DB_HOST
+      - DB_PASSWORD=$DB_PASSWORD
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
   web:
-    stdin_open: true
-    build:
-      context: ./web
-    volumes:
-      - /app/node_modules
-      - ./web:/app
-    ports:
-      - 8080:8080
-    depends_on:
-      - api
+    image: skipeverylunch/learnwithyou-web-10-14
+    mem_limit: 128m
+    hostname: web
