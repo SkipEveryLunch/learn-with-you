@@ -3,3 +3,7 @@ api/vendor/
 api/node_modules/
 web/node_modules/
 .git
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
