@@ -20,8 +20,10 @@ WORKDIR /var/www
 
 RUN chown -R www-data:www-data /var/www
 
-RUN composer global require "laravel/installer"
+# RUN composer global require "laravel/installer"
 
 WORKDIR /var/www/html
 
 COPY . .
+
+RUN composer install
