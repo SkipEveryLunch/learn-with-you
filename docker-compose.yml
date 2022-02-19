@@ -19,6 +19,8 @@ services:
       - DB_PASSWORD=$DB_PASSWORD
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
       - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - SESSION_DOMAIN=$WWW_APP_DOMAIN
+      - SANCTUM_STATEFUL_DOMAINS=$WWW_APP_DOMAIN
   web:
     image: skipeverylunch/learnwithyou-web-10-14
     mem_limit: 128m
