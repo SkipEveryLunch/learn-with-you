@@ -27,5 +27,3 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN composer install
-
-CMD chown www-data storage/ -R   
