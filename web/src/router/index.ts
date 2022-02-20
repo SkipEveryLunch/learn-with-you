@@ -10,7 +10,6 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '',
     component: Wrapper,
-    meta: { title: 'learn-with-you' },
     children: [
       {
         path: '',
