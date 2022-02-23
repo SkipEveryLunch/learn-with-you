@@ -147,7 +147,7 @@ export default defineComponent({
 <style scoped>
 .search_container {
   box-sizing: border-box;
-  @apply text-gray-700 bg-gray-100 rounded-md relative mr-2 border border-gray-400;
+  @apply text-gray-700 bg-gray-100 rounded-md relative mr-2 border border-gray-400 dark:border-gray-100;
   width: 15rem;
   display: block;
   overflow: hidden;
