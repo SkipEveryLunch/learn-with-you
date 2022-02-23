@@ -75,6 +75,7 @@ export interface User {
   email: string;
   unconfirmed_messages: number;
   role: Role;
+  is_test_user: boolean;
   created_at: string;
   updated_at: string;
 }

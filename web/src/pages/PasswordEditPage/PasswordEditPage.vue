@@ -82,6 +82,9 @@ export default defineComponent({
     const onChangePasswordConfirm = (payload: string) => {
       form.password_confirm = payload;
     };
+    const user = computed(()=>{
+      return store.state.user
+    })
     watch(form, () => {
       if (form.password.length === 0) {
         pushToArr(errors.password, 'パスワードが未入力です');
@@ -105,13 +108,34 @@ export default defineComponent({
       }
     });
     const onUpdate = async () => {
-      isCalling.value = true;
-      try {
-        await axios.put('password_update', { password: form.password });
-      } catch (e) {
-        console.log(e);
+      if(user.value.is_test_user){
+        store.dispatch('setModal', {
+          type: 'caution',
+          messages: ['テストユーザーはパスワードを','変更できません'],
+        });
+      }else{
+        isCalling.value = true;
+        try {
+          const {status} = await axios.put('password_update', { password: form.password });
+          if(status===202){
+            store.dispatch('setModal', {
+              type: 'notification',
+              messages: ['変更しました'],
+            });
+          }else{
+            store.dispatch('setModal', {
+              type: 'notification',
+              messages: ['不明なエラーです'],
+            });
+          }
+        } catch (e) {
+          store.dispatch('setModal', {
+            type: 'caution',
+            messages: ['不明なエラーです'],
+          });
+        }
+        isCalling.value = false;
       }
-      isCalling.value = false;
     };
     const disabled = computed(() => {
       return !(

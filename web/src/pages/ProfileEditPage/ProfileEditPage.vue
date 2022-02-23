@@ -144,15 +144,36 @@ export default defineComponent({
       }
     });
     const onUpdate = async () => {
+      if(user.value.is_test_user){
+        store.dispatch('setModal', {
+          type: 'caution',
+          messages: ['テストユーザーはプロフィールを','変更できません'],
+        });
+      }else{
       isCalling.value = true;
       try {
-        const {
+        const {status,
           data: { user },
         } = await axios.put('user_update', form);
-        await store.dispatch('setUser', user);
+        if(status===202){
+          store.dispatch('setModal', {
+            type: 'notification',
+            messages: ['変更しました'],
+          });
+          await store.dispatch('setUser', user);
+        }else{
+          store.dispatch('setModal', {
+            type: 'caution',
+            messages: ['不明なエラーです'],
+          });
+        }
         isCalling.value = false;
       } catch (e) {
-        console.log(e);
+        store.dispatch('setModal', {
+          type: 'caution',
+          messages: ['不明なエラーです'],
+        });
+      }
       }
     };
     const goBack = () => {
