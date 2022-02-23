@@ -2,7 +2,7 @@
   <div class="grid grid-cols-10 card bg-front text-normal">
     <div class="flex flex-col col-span-3 p-3">
       <p class="text-2xl">{{ section.title }}</p>
-      <button class="text-xs w-max btn btn-sub-white p-1 mt-2">{{ section.series.name }}</button>
+      <span class=" w-max text-xs rounded p-1 mt-2 text-gray-700 bg-transparent bg-gray-100 border border-gray-400 dark:border-gray-100">{{ section.series.name }}</span>
     </div>
     <div class="flex flex-col justify-center col-span-5 flex-2 wrap">
       <div>
