@@ -6,53 +6,50 @@
   ::-webkit-scrollbar {
     display: none;
   }
-  .btn {
-    @apply text-sm rounded;
-    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
-  }
-  .btn-primary {
-    @apply text-gray-100 bg-blue-500 border border-blue-500 hover:border-blue-700 hover:bg-blue-700;
-  }
-  .btn-sub {
-    @apply text-blue-700 bg-transparent border border-blue-500 hover:bg-gray-200;
-  }
-  .btn-sub-white {
-    @apply text-gray-700 bg-transparent bg-gray-100 border border-gray-400 hover:bg-gray-300;
-  }
-  .btn-yellow {
-    @apply text-yellow-700 bg-yellow-300 hover:bg-yellow-500 hover:text-gray-700;
-  }
-  .formWrapper {
-    @apply flex items-center m-3;
-  }
-  .btnbox-bottom {
-    @apply fixed bottom-0 flex p-3 transform -translate-x-1/2 mb-14 left-1/2;
-  }
-
-  .scroller {
-    @apply h-full mb-1;
-    overflow-y: auto;
-  }
-  .scroller::-webkit-scrollbar {
-    display: block;
-    width: 0.6rem;
-  }
-  .scroller::-webkit-scrollbar-track {
-    @apply bg-gray-400 rounded-full;
-  }
-  .scroller::-webkit-scrollbar-thumb {
-    @apply bg-gray-200 rounded-full cursor-pointer;
-  }
-  .scroller li {
-    @apply mr-2;
-  }
-  .bg-front {
-    @apply bg-gray-100 dark:bg-gray-700;
-  }
-  .text-normal {
-    @apply text-gray-700 dark:text-gray-100;
-  }
 }
-.sideRow {
-  @apply py-2 cursor-pointer hover:text-gray-300 w-max;
+.btn {
+  @apply text-sm rounded;
+  padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+}
+.btn-primary {
+  @apply text-gray-100 bg-blue-500 border border-blue-500 hover:border-blue-700 hover:bg-blue-700;
+}
+.btn-sub {
+  @apply text-blue-700 bg-transparent border border-blue-500 hover:bg-gray-200;
+}
+.btn-sub-white {
+  @apply text-gray-700 bg-transparent bg-gray-100 border border-gray-400 hover:bg-gray-300 dark:border-gray-100;
+}
+.btn-yellow {
+  @apply text-yellow-700 bg-yellow-300 hover:bg-yellow-500 hover:text-gray-700;
+}
+.formWrapper {
+  @apply flex items-center m-3;
+}
+.btnbox-bottom {
+  @apply fixed bottom-0 flex p-3 transform -translate-x-1/2 mb-14 left-1/2;
+}
+
+.scroller {
+  @apply h-full mb-1;
+  overflow-y: auto;
+}
+.scroller::-webkit-scrollbar {
+  display: block;
+  width: 0.6rem;
+}
+.scroller::-webkit-scrollbar-track {
+  @apply bg-gray-400 rounded-full;
+}
+.scroller::-webkit-scrollbar-thumb {
+  @apply bg-gray-200 rounded-full cursor-pointer;
+}
+.scroller li {
+  @apply mr-2;
+}
+.bg-front {
+  @apply bg-gray-100 dark:bg-gray-700;
+}
+.text-normal {
+  @apply text-gray-700 dark:text-gray-100;
 }
