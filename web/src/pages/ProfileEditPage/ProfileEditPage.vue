@@ -100,14 +100,9 @@ export default defineComponent({
       return store.state.user;
     });
     onMounted(() => {
-      if (!store.state.user) {
-        router.push('/login');
-      }
-    });
-    watch(user, () => {
-      form.first_name = user.value.first_name;
-      form.last_name = user.value.last_name;
-      form.email = user.value.email;
+        form.first_name = user.value.first_name;
+        form.last_name = user.value.last_name;
+        form.email = user.value.email;
     });
     watch(form, () => {
       if (form.first_name.length === 0) {
