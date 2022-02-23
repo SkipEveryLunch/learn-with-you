@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('role_id')->default->(2);
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->boolean("is_test_user")->default(false);
             $table->rememberToken();
