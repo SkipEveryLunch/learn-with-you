@@ -21,6 +21,7 @@ class CurrentUserResource extends JsonResource
             "email"=>$this->email,
             "unconfirmed_messages"=>$this->unconfirmedMessages(),
             "role"=>new RoleResource($this->role),
+            "is_test_user"=>$this->is_test_user,
             "created_at"=>$this->created_at->format('Y-m-d'),
             "updated_at"=>$this->updated_at->format('Y-m-d'),
         ];

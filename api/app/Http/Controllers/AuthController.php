@@ -22,7 +22,8 @@ class AuthController extends Controller
                 "email"=>$req->input("email"),
                 "password"=>Hash::make($req->input("password")),
             ]);
-            return response(["user"=>new CurrentUserResource($user)],Response::HTTP_CREATED);
+            $newUser = User::find($user->id);
+            return response(["user"=>new CurrentUserResource($newUser)],Response::HTTP_CREATED);
         }catch(Exception $e){
             if($e->errorInfo[0]==="23000"){
                 return response()->json([
@@ -88,6 +89,9 @@ class AuthController extends Controller
     }
     public function updateInfo(Request $req){
         $user = $req->user();
+        if($user->is_test_user){
+            return response(["message"=>"a test user can't change information"],Response::HTTP_FORBIDDEN);
+        }
         $user->update(
             $req->only("first_name",
                     "last_name",
@@ -97,6 +101,9 @@ class AuthController extends Controller
     }
     public function updatePassword(Request $req){
         $user = $req->user();
+        if($user->is_test_user){
+            return response(["message"=>"a test user can't change information"],Response::HTTP_FORBIDDEN);
+        }
         $user->update([
             'password' => Hash::make($req->input('password'))
         ]);
