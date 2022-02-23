@@ -1,4 +1,7 @@
 version: '3'
+volumes:
+  vendor:
+  node_modules:
 services:
   nginx:
     depends_on:
@@ -7,7 +10,6 @@ services:
     restart: always
     build:
       context: ./nginx
-      dockerfile: Dockerfile.dev
     ports:
       - '3050:80'
   api:
@@ -17,14 +19,15 @@ services:
     ports:
       - 9000:9000
     volumes:
-      - ./api:/app
+      - ./api:/var/www/html
+      - vendor:/var/www/html/vendor
     environment:
       - DB_CONNECTION=mysql
       - DB_HOST=db
       - DB_PORT=3306
       - DB_DATABASE=admin
       - DB_USERNAME=root
-      - DB_PASSWORD=rootpassword
+      - DB_PASSWORD=root
       - USER_PASSWORD=12345678
     depends_on:
       - db
@@ -34,19 +37,19 @@ services:
     environment:
       MYSQL_DATABASE: admin
       MYSQL_USER: root
-      MYSQL_PASSWORD: rootpassword
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./api/storage/dbdata:/var/lib/mysql
   web:
     stdin_open: true
     build:
       context: ./web
       dockerfile: Dockerfile.dev
     volumes:
-      - /app/node_modules
+      - node_modules:/app/node_modules
       - ./web:/app
     ports:
       - 8080:8080
-    environment:
-      - USER_PASSWORD=12345678
     depends_on:
       - api
