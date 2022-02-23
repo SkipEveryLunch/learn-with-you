@@ -1,5 +1,4 @@
 <template>
-<!-- for deploy -->
   <nav
     data-testid="header"
     class="flex justify-between px-3 text-lg text-normal bg-front"
