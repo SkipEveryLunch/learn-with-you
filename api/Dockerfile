@@ -27,3 +27,6 @@ WORKDIR /var/www/html
 COPY . .
 
 RUN composer install
+
+RUN chgrp -R www-data storage bootstrap/cache
+RUN chmod -R ug+rwx storage bootstrap/cache
