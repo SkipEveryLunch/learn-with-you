@@ -20,14 +20,12 @@ class CommentSeeder extends Seeder
         $questions = Question::all()->toArray();
         $favOrUnfav = ["fav","unfav"];
         foreach($questions as $question){
-            foreach($users as $user){
-                if(rand_judge(2)){
-                    $user_id = random_int(2,$users_count);
-                    Comment::factory()->create([
-                        "user_id"=>$user_id,
-                        "question_id"=>$question["id"]
-                    ]);
-                }
+            if(rand_judge(2)){
+                $user_id = random_int(2,$users_count);
+                Comment::factory()->create([
+                    "user_id"=>$user_id,
+                    "question_id"=>$question["id"]
+                ]);
             }
         }
     }
