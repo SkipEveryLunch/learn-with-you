@@ -16,7 +16,7 @@
   >
     <transition name="modalbox" appear>
       <div class="modal">
-        <div class="py-2 pl-5 text-normal bg-blue-700">コメントの投稿</div>
+        <div class="py-2 pl-5 text-gray-100 bg-blue-700">コメントの投稿</div>
         <div class="flex flex-col m-5">
           <div class="flex flex-col">
             <div>
