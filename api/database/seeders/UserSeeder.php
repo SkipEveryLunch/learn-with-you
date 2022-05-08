@@ -21,7 +21,14 @@ class UserSeeder extends Seeder
             "role_id"=>2,
             "is_test_user"=>true
         ]);
-        User::factory(4)->create([
+        User::factory()->create([
+            "first_name"=>"Tom",
+            "last_name"=>"Smith",
+            "email"=>"ts@test.io",
+            "role_id"=>1,
+            "is_test_user"=>false
+        ]);
+        User::factory(3)->create([
             "role_id"=>2
         ]);
     }
