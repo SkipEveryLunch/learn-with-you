@@ -1,7 +1,17 @@
 <template>
   <div
     data-testid="modal"
-    class="fixed z-20 flex items-center justify-center w-full h-full transition-opacity bg-gray-900  bg-opacity-40"
+    class="
+      fixed
+      z-20
+      flex
+      items-center
+      justify-center
+      w-full
+      h-full
+      transition-opacity
+      bg-gray-900 bg-opacity-40
+    "
   >
     <transition name="modalbox" appear>
       <div class="modal">
@@ -94,7 +104,8 @@ export default defineComponent({
   transition: all 0.25s ease;
 }
 .modal {
-  @apply flex flex-col pb-3 bg-gray-100 rounded-md w-1/4 text-gray-700;
+  @apply flex flex-col pb-3 bg-gray-100 rounded-md text-gray-700;
+  width: 300px;
   overflow: hidden;
 }
 </style>
