@@ -18,7 +18,12 @@
     </div>
     <div class="grid grid-cols-10 col-span-2 grid-rows-10">
       <div
-        class="col-span-4 col-start-2 row-span-3 row-start-1 text-sm  whitespace-nowrap"
+        class="
+          col-span-4 col-start-2
+          row-span-3 row-start-1
+          text-small
+          whitespace-nowrap
+        "
       >
         <p>
           レベル:
@@ -39,7 +44,13 @@
       <div
         v-if="isAbleToSeeComments"
         data-testid="edit-buttons"
-        class="flex items-center justify-center col-span-8 col-start-3 row-span-1  row-start-9"
+        class="
+          flex
+          items-center
+          justify-center
+          col-span-8 col-start-3
+          row-span-1 row-start-9
+        "
       >
         <router-link
           :to="`/section/${question.section_id}/question/${question.id}/edit`"

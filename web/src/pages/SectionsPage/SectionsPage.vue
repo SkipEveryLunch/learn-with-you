@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div class="pb-3 pl-2 mt-3 text-4xl font-bold text-gray-700 w-max">
+    <div class="pb-3 pl-2 mt-3 text-xlarge2 font-bold text-gray-700 w-max">
       セクション一覧
     </div>
     <SearchWindow
@@ -39,7 +39,7 @@
         </transition-group>
       </div>
       <div v-else class="flex items-center justify-center w-full">
-        <div class="text-xl text-gray-200">セクションがありません</div>
+        <div class="text-xlarge text-gray-200">セクションがありません</div>
       </div>
     </div>
     <div v-else class="w-full h-full">

@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col mb-3">
-    <label class="mb-2 text-md text-normal" :for="id"
+    <label class="mb-2 text-mid text-normal" :for="id"
       >{{ name }}:
-      <span class="ml-1 text-sm text-red-400">{{
+      <span class="ml-1 text-small text-red-400">{{
         error.join(' ')
       }}</span></label
     >

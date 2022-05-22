@@ -1,6 +1,6 @@
 <template>
   <nav class="my-2">
-    <ul class="flex items-center justify-center w-full px-3 text-base">
+    <ul class="flex items-center justify-center w-full px-3 text-mid">
       <li class="mr-2">
         <a href="javascript:void(0)" @click="prev"
           ><font-awesome-icon
@@ -16,7 +16,7 @@
         @click="() => goTo(p)"
         :key="p"
       >
-        <span class="text-lg"> {{ p }} </span>
+        <span class="text-large"> {{ p }} </span>
       </div>
 
       <li class="ml-2">

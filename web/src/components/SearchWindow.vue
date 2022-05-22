@@ -23,31 +23,31 @@
 
         <button
           v-if="series && !isSelectMode"
-          class="mr-1 btn btn-sub-white text-md"
+          class="mr-1 btn btn-sub-white text-mid"
           @click="() => toggleSelectMode(true)"
         >
           シリーズ検索
         </button>
         <button
           v-if="isSelectMode"
-          class="mr-1 btn btn-sub-white text-md"
+          class="mr-1 btn btn-sub-white text-mid"
           @click="() => toggleSelectMode(false)"
         >
           タイトル検索
         </button>
         <button
           v-if="isMessage === false"
-          class="mr-1 btn btn-sub-white text-md"
+          class="mr-1 btn btn-sub-white text-mid"
           @click="filterMine"
         >
           自作のみ
         </button>
-        <button class="mr-1 btn btn-sub-white text-md" @click="showAll">
+        <button class="mr-1 btn btn-sub-white text-mid" @click="showAll">
           全て表示
         </button>
         <button
           v-if="isMessage === true"
-          class="mr-1 btn btn-sub-white text-md"
+          class="mr-1 btn btn-sub-white text-mid"
           @click="filterNew"
         >
           未読のみ
@@ -55,12 +55,12 @@
       </div>
       <div class="flex">
         <router-link v-if="goBackPath" :to="goBackPath">
-          <button class="mr-1 btn btn-sub-white text-md">
+          <button class="mr-1 btn btn-sub-white text-mid">
             <font-awesome-icon :icon="faBackward" />
           </button>
         </router-link>
         <router-link v-if="addPath" :to="addPath">
-          <button class="btn btn-primary text-md">
+          <button class="btn btn-primary text-mid">
             <font-awesome-icon :icon="faPlus" />
           </button>
         </router-link>

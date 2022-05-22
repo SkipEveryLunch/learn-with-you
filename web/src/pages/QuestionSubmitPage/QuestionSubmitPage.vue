@@ -6,7 +6,9 @@
       class="flex flex-col items-center"
     >
       <div>
-        <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">問題の投稿</h1>
+        <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
+          問題の投稿
+        </h1>
       </div>
       <div class="w-1/3 p-5 rounded bg-front pr-7">
         <TextArea

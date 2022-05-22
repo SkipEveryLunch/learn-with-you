@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center">
     <div>
-      <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">
+      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
         セクションの投稿
       </h1>
     </div>
@@ -26,7 +26,7 @@
         :error="errors.description"
       />
       <div class="flex flex-col mb-3">
-        <label class="mb-2 text-md">シリーズ名:</label>
+        <label class="mb-2 text-mid">シリーズ名:</label>
         <select class="formInput" v-model="form.series_id">
           <option
             v-for="aSeries in series"

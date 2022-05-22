@@ -8,13 +8,13 @@
         @click="flip"
       >
         <div class="w-full p-3">
-          <div class="text-lg text-center">質問</div>
+          <div class="text-large text-center">質問</div>
           <div class="paragraph-container">{{ front }}</div>
         </div>
       </div>
       <div v-else class="card card-back" @click="flip">
         <div class="w-full p-3 rounded-md">
-          <div class="text-lg text-center">解答</div>
+          <div class="text-large text-center">解答</div>
           <div class="paragraph-container">{{ back }}</div>
         </div>
       </div>

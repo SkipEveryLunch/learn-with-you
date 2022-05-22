@@ -6,7 +6,7 @@
         :icon="faSpinner"
       />
     </div>
-    <p class="text-2xl text-center text-gray-500 dark:text-blue-200 flicker">
+    <p class="text-xlarge text-center text-gray-500 dark:text-blue-200 flicker">
       Loading...
     </p>
   </div>

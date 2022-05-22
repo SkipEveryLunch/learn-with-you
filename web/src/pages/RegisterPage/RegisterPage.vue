@@ -1,7 +1,7 @@
 <template>
   <div data-testid="register-page" class="flex flex-col items-center mb-5">
     <div>
-      <h1 class="mt-5 text-4xl font-bold text-gray-700 mb-7">新規登録</h1>
+      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">新規登録</h1>
     </div>
     <div class="w-1/3 p-5 rounded bg-front pr-7">
       <Input

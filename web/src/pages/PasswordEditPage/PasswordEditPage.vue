@@ -1,7 +1,9 @@
 <template>
   <div data-testid="password-edit-page" class="flex flex-col items-center">
     <div>
-      <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">パスワード変更</h1>
+      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
+        パスワード変更
+      </h1>
     </div>
     <div class="w-1/3 p-5 rounded bg-front pr-7">
       <Input
@@ -82,9 +84,9 @@ export default defineComponent({
     const onChangePasswordConfirm = (payload: string) => {
       form.password_confirm = payload;
     };
-    const user = computed(()=>{
-      return store.state.user
-    })
+    const user = computed(() => {
+      return store.state.user;
+    });
     watch(form, () => {
       if (form.password.length === 0) {
         pushToArr(errors.password, 'パスワードが未入力です');
@@ -108,21 +110,23 @@ export default defineComponent({
       }
     });
     const onUpdate = async () => {
-      if(user.value.is_test_user){
+      if (user.value.is_test_user) {
         store.dispatch('setModal', {
           type: 'caution',
-          messages: ['テストユーザーはパスワードを','変更できません'],
+          messages: ['テストユーザーはパスワードを', '変更できません'],
         });
-      }else{
+      } else {
         isCalling.value = true;
         try {
-          const {status} = await axios.put('password_update', { password: form.password });
-          if(status===202){
+          const { status } = await axios.put('password_update', {
+            password: form.password,
+          });
+          if (status === 202) {
             store.dispatch('setModal', {
               type: 'notification',
               messages: ['変更しました'],
             });
-          }else{
+          } else {
             store.dispatch('setModal', {
               type: 'notification',
               messages: ['不明なエラーです'],

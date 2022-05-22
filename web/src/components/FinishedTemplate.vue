@@ -12,7 +12,7 @@
         </router-link>
       </div>
     </div>
-    <p class="text-2xl text-center">学習した問題一覧</p>
+    <p class="text-xlarge text-center">学習した問題一覧</p>
     <div>
       <transition-group
         appear

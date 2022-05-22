@@ -1,9 +1,9 @@
 <template>
   <div v-if="!isLoading" class="h-full">
     <div class="flex flex-col w-full mx-2">
-      <div class="pt-3 pb-2 text-4xl font-bold text-gray-700 w-max">
+      <div class="pt-3 pb-2 text-xlarge2 font-bold text-gray-700 w-max">
         メッセージ一覧
-        <p class="text-lg">
+        <p class="text-large">
           <span class="mr-3">全{{ messages.length }}件</span>
           <span data-testid="unconfirmed">うち{{ unconfirmed }}件未読</span>
         </p>
@@ -38,7 +38,7 @@
       </transition-group>
     </div>
     <div v-else class="flex items-center justify-center w-full h-full">
-      <div class="text-lg">
+      <div class="text-large">
         <p>まだ問題がありません</p>
       </div>
     </div>

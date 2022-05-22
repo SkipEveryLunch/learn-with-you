@@ -1,7 +1,7 @@
 <template>
   <div data-testid="register-page" class="flex flex-col items-center">
     <div>
-      <h1 class="mt-5 text-3xl font-bold text-gray-700 mb-7">
+      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
         プロフィール編集
       </h1>
     </div>
@@ -100,9 +100,9 @@ export default defineComponent({
       return store.state.user;
     });
     onMounted(() => {
-        form.first_name = user.value.first_name;
-        form.last_name = user.value.last_name;
-        form.email = user.value.email;
+      form.first_name = user.value.first_name;
+      form.last_name = user.value.last_name;
+      form.email = user.value.email;
     });
     watch(form, () => {
       if (form.first_name.length === 0) {
@@ -139,36 +139,37 @@ export default defineComponent({
       }
     });
     const onUpdate = async () => {
-      if(user.value.is_test_user){
+      if (user.value.is_test_user) {
         store.dispatch('setModal', {
           type: 'caution',
-          messages: ['テストユーザーはプロフィールを','変更できません'],
+          messages: ['テストユーザーはプロフィールを', '変更できません'],
         });
-      }else{
-      isCalling.value = true;
-      try {
-        const {status,
-          data: { user },
-        } = await axios.put('user_update', form);
-        if(status===202){
-          store.dispatch('setModal', {
-            type: 'notification',
-            messages: ['変更しました'],
-          });
-          await store.dispatch('setUser', user);
-        }else{
+      } else {
+        isCalling.value = true;
+        try {
+          const {
+            status,
+            data: { user },
+          } = await axios.put('user_update', form);
+          if (status === 202) {
+            store.dispatch('setModal', {
+              type: 'notification',
+              messages: ['変更しました'],
+            });
+            await store.dispatch('setUser', user);
+          } else {
+            store.dispatch('setModal', {
+              type: 'caution',
+              messages: ['不明なエラーです'],
+            });
+          }
+          isCalling.value = false;
+        } catch (e) {
           store.dispatch('setModal', {
             type: 'caution',
             messages: ['不明なエラーです'],
           });
         }
-        isCalling.value = false;
-      } catch (e) {
-        store.dispatch('setModal', {
-          type: 'caution',
-          messages: ['不明なエラーです'],
-        });
-      }
       }
     };
     const goBack = () => {

@@ -14,7 +14,7 @@
               {{ comment.comment_type.name }}
             </p>
           </div>
-          <div class="text-sm">
+          <div class="text-small">
             <p>{{ comment.comment_detail }}</p>
           </div>
         </div>

@@ -1,7 +1,18 @@
 <template>
   <div
     data-testid="profile-dropdown"
-    class="absolute right-0 z-10 text-base bg-gray-100 border border-gray-400 rounded shadow-sm  top-full w-max"
+    class="
+      absolute
+      right-0
+      z-10
+      text-mid
+      bg-gray-100
+      border border-gray-400
+      rounded
+      shadow-sm
+      top-full
+      w-max
+    "
     v-click-away="() => toggleDropDown(false)"
   >
     <ul>

@@ -1,7 +1,7 @@
 <template>
   <nav
     data-testid="header"
-    class="flex justify-between px-3 text-lg text-normal bg-front"
+    class="flex justify-between px-3 text-large text-normal bg-front"
   >
     <div class="flex space-x-1">
       <div class="flex items-center px-2 py-3">
@@ -34,7 +34,10 @@
           <span class="py-1 mr-2 cursor-pointer">
             {{ name }}
           </span>
-          <span class="mt-1 ml-1 text-sm arrow" :class="{ up: showDropDown }">
+          <span
+            class="mt-1 ml-1 text-small arrow"
+            :class="{ up: showDropDown }"
+          >
             <font-awesome-icon class="fa-lg" :icon="faChevronDown" />
           </span>
         </div>

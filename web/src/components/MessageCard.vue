@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full p-3">
       <div class="flex items-center mb-1">
         <div>
-          <span class="text-2xl">
+          <span class="text-xlarge">
             {{ message.title }}
           </span>
         </div>
@@ -11,12 +11,12 @@
           <Flag> new!</Flag>
         </div>
       </div>
-      <div class="text-base">
+      <div class="text-mid">
         <p>{{ message.body }}</p>
       </div>
     </div>
     <div class="flex flex-col justify-between w-1/4 h-full p-2">
-      <div class="text-sm text-right">
+      <div class="text-small text-right">
         受信日：{{ message.created_at.slice(0, 10) }}
       </div>
       <div class="flex justify-end mt-5">

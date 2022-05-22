@@ -1,9 +1,9 @@
 <template>
   <div v-if="!isLoading && section" class="h-full">
     <div class="w-full">
-      <div class="pb-2 pl-2 mt-3 text-4xl font-bold text-gray-700 w-max">
+      <div class="pb-2 pl-2 mt-3 text-xlarge2 font-bold text-gray-700 w-max">
         {{ section.title }}
-        <p class="text-lg">
+        <p class="text-large">
           <span class="mr-3">問題数：{{ section.count_questions }}</span>
           <span>達成率：{{ Math.round(section.complete_rate * 100) }}%</span>
         </p>
@@ -49,7 +49,7 @@
       </transition-group>
     </div>
     <div v-else class="flex items-center justify-center w-full h-full">
-      <div class="text-lg">
+      <div class="text-large">
         <p>まだ問題がありません</p>
       </div>
     </div>

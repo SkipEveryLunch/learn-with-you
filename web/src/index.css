@@ -8,7 +8,7 @@
   }
 }
 .btn {
-  @apply text-sm rounded;
+  @apply text-xs sm:text-sm rounded;
   padding: 0.4rem 0.6rem 0.4rem 0.6rem;
 }
 .btn-primary {
@@ -52,4 +52,20 @@
 }
 .text-normal {
   @apply text-gray-700 dark:text-gray-100;
+}
+
+.text-small {
+  @apply text-xs sm:text-sm;
+}
+.text-mid {
+  @apply text-sm sm:text-base;
+}
+.text-large {
+  @apply text-base sm:text-lg;
+}
+.text-xlarge {
+  @apply text-lg sm:text-xl;
+}
+.text-xlarge2 {
+  @apply text-xl sm:text-3xl;
 }

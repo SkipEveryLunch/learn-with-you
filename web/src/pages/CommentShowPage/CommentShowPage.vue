@@ -1,9 +1,11 @@
 <template>
   <div v-if="!isLoading" data-testid="comment-show-page" class="h-full">
     <div class="w-full px-4 mt-3 mb-2">
-      <div class="pt-2 pb-3 text-4xl font-bold text-gray-700">
+      <div class="pt-2 pb-3 text-xlarge2 font-bold text-gray-700">
         コメント一覧
-        <p class="text-lg">{{ comments.length }}件の改善要望が届いています</p>
+        <p class="text-large">
+          {{ comments.length }}件の改善要望が届いています
+        </p>
       </div>
     </div>
     <div v-if="fComments.length > 0 && question" class="w-full">
