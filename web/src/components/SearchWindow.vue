@@ -1,6 +1,16 @@
 <template>
   <div class="w-full px-3">
-    <div class="flex justify-between w-full p-3 rounded-sm bg-front">
+    <div
+      class="
+        flex flex-col
+        gap-2
+        sm:flex-row
+        justify-between
+        p-3
+        rounded-sm
+        bg-front
+      "
+    >
       <div class="flex">
         <form v-if="!isSelectMode" class="search_container">
           <input type="text" @input="onInput" :value="modelValue" />
@@ -20,7 +30,8 @@
             </option>
           </select>
         </form>
-
+      </div>
+      <div class="flex">
         <button
           v-if="series && !isSelectMode"
           class="mr-1 btn btn-sub-white text-mid"
@@ -52,15 +63,13 @@
         >
           未読のみ
         </button>
-      </div>
-      <div class="flex">
         <router-link v-if="goBackPath" :to="goBackPath">
-          <button class="mr-1 btn btn-sub-white text-mid">
+          <button class="mr-1 btn btn-sub-white h-full">
             <font-awesome-icon :icon="faBackward" />
           </button>
         </router-link>
         <router-link v-if="addPath" :to="addPath">
-          <button class="btn btn-primary text-mid">
+          <button class="btn btn-primary h-full">
             <font-awesome-icon :icon="faPlus" />
           </button>
         </router-link>
@@ -147,13 +156,12 @@ export default defineComponent({
 <style scoped>
 .search_container {
   box-sizing: border-box;
-  @apply text-gray-700 bg-gray-100 rounded-md relative mr-2 border border-gray-400 dark:border-gray-100;
-  width: 15rem;
+  @apply text-gray-700 bg-gray-100 rounded-md relative mr-2  border border-gray-400 dark:border-gray-100 w-full;
   display: block;
   overflow: hidden;
 }
 .search_container input {
-  @apply w-full p-1 pl-2;
+  @apply p-1 pl-2 w-full;
 }
 .search_container input:focus {
   outline: 0;

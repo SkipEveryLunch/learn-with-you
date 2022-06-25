@@ -1,9 +1,7 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="outerFormContainer">
     <div>
-      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
-        セクションの投稿
-      </h1>
+      <h1 class="titleContainer">セクションの投稿</h1>
     </div>
     <div
       data-testid="section-submit-page"

@@ -37,9 +37,9 @@
         </li>
       </transition-group>
     </div>
-    <div v-else class="flex items-center justify-center w-full h-full">
+    <div v-else class="grid place-items-center h-full">
       <div class="text-large">
-        <p>まだ問題がありません</p>
+        <p>メッセージが届いていません</p>
       </div>
     </div>
   </div>

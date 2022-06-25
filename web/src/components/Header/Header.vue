@@ -13,11 +13,11 @@
     <div class="flex">
       <ToggleDarkButton class="mr-3" />
       <div v-if="name.length === 0">
-        <div class="flex items-center px-2 py-3">
+        <div class="flex flex-col sm:flex-row gap-2 items-center px-2 py-3">
           <router-link
             data-testid="login-link"
             to="/login"
-            class="mr-2 btn btn-sub-white"
+            class="btn btn-sub-white w-full sm:w-max"
             >ログイン</router-link
           >
           <router-link to="/register" class="btn btn-primary"
@@ -31,15 +31,15 @@
           @click="() => toggleDropDown(!showDropDown)"
           data-testid="profile-menu"
         >
-          <span class="py-1 mr-2 cursor-pointer">
+          <div class="py-1 mr-2 cursor-pointer">
             {{ name }}
-          </span>
-          <span
-            class="mt-1 ml-1 text-small arrow"
+          </div>
+          <div
+            class="mt-1 ml-1 text-small flex flex-col justify-center arrow"
             :class="{ up: showDropDown }"
           >
             <font-awesome-icon class="fa-lg" :icon="faChevronDown" />
-          </span>
+          </div>
         </div>
         <transition name="dropdown" appear>
           <ProfileDropDown
@@ -112,11 +112,7 @@ export default defineComponent({
 .dropdown-leave-active {
   transition: all 0.25s ease-out;
 }
-.arrow {
-  transition: all 0.25s ease-out;
-  transform: translateY(0.3rem);
-}
-.arrow.up {
-  transform: translateY(-0.3rem) rotate(-180deg);
+.up {
+  transform: rotate(-180deg);
 }
 </style>

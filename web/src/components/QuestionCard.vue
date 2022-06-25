@@ -1,7 +1,7 @@
 <template>
-  <div class="grid grid-cols-10 card bg-front text-normal">
-    <div class="flex flex-col justify-center col-span-8">
-      <div class="flex">
+  <div class="grid grid-cols-10 gap-3 card bg-front text-normal">
+    <div class="flex flex-col justify-center col-span-7">
+      <div class="flex mb-auto">
         <div v-if="isPostedByMe" class="mr-2">
           <Flag>Posted</Flag>
         </div>
@@ -9,22 +9,25 @@
           <Flag colorType="blue">Commented</Flag>
         </div>
       </div>
-      <div class="pb-2 border-u">
-        <p>{{ question.front }}</p>
-      </div>
-      <div class="mt-2">
-        <p>{{ question.back }}</p>
+      <div class="flex flex-col gap-2 justify-center mb-auto text-mid">
+        <div>
+          <p>{{ question.front }}</p>
+        </div>
+        <div class="border-u"></div>
+        <div>
+          <p>{{ question.back }}</p>
+        </div>
       </div>
     </div>
-    <div class="grid grid-cols-10 col-span-2 grid-rows-10">
-      <div
-        class="
-          col-span-4 col-start-2
-          row-span-3 row-start-1
-          text-small
-          whitespace-nowrap
-        "
-      >
+    <div class="flex flex-col gap-3 items-end col-span-3">
+      <div>
+        <CommentIcon
+          :isCommented="isCommentedByMe"
+          :count="question.commented_by.length"
+          @comment="showModal"
+        />
+      </div>
+      <div class="text-small whitespace-nowrap flex flex-col items-end">
         <p>
           レベル:
           {{ question.learning_stage ? question.learning_stage : '未学習' }}
@@ -34,33 +37,21 @@
           {{ question.next_period ? question.next_period : '未学習' }}
         </p>
       </div>
-      <div class="col-span-2 col-start-9 row-span-2 row-start-1">
-        <CommentIcon
-          :isCommented="isCommentedByMe"
-          :count="question.commented_by.length"
-          @comment="showModal"
-        />
-      </div>
+
       <div
         v-if="isAbleToSeeComments"
         data-testid="edit-buttons"
-        class="
-          flex
-          items-center
-          justify-center
-          col-span-8 col-start-3
-          row-span-1 row-start-9
-        "
+        class="flex gap-1"
       >
         <router-link
           :to="`/section/${question.section_id}/question/${question.id}/edit`"
         >
-          <button class="mr-2 whitespace-nowrap btn btn-primary">編集</button>
+          <button class="whitespace-nowrap btn btn-primary">編集</button>
         </router-link>
         <button
           data-testid="question-delete-button"
           @click="onDelete"
-          class="mr-2 btn btn-sub-white whitespace-nowrap"
+          class="btn btn-sub-white whitespace-nowrap"
         >
           削除
         </button>
@@ -167,7 +158,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .card {
-  @apply p-3 mb-2 rounded w-full;
+  @apply py-1 px-3 rounded w-full;
   min-height: 120px;
 }
 .border-u {

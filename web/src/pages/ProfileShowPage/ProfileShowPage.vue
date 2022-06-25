@@ -1,6 +1,9 @@
 <template>
-  <div v-if="user" class="flex justify-center mt-2" data-testid="profile-page">
-    <div class="w-2/3 p-5 my-5 text-xlarge text-normal bg-front rounded">
+  <div v-if="user" class="outerFormContainer" data-testid="profile-page">
+    <div>
+      <h1 class="titleContainer">プロフィール</h1>
+    </div>
+    <div class="formContainer">
       <div class="my-5">
         <p class="mb-3">
           名前：<span data-testid="user-firstname">

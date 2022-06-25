@@ -1,11 +1,9 @@
 <template>
-  <div data-testid="register-page" class="flex flex-col items-center">
+  <div data-testid="register-page" class="outerFormContainer">
     <div>
-      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
-        プロフィール編集
-      </h1>
+      <h1 class="titleContainer">プロフィール編集</h1>
     </div>
-    <div class="w-1/3 p-5 rounded bg-front pr-7">
+    <div class="formContainer">
       <Input
         id="first-name"
         name="名字"

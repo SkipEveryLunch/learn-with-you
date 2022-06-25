@@ -1,9 +1,9 @@
 <template>
-  <div data-testid="login-page" class="flex flex-col items-center h-full">
+  <div data-testid="login-page" class="outerFormContainer">
     <div>
-      <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">ログイン</h1>
+      <h1 class="titleContainer">ログイン</h1>
     </div>
-    <div class="w-1/3 p-5 rounded bg-front pr-7">
+    <div class="formContainer">
       <Input
         id="email"
         name="メールアドレス"

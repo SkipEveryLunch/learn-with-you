@@ -3,14 +3,12 @@
     <div
       v-if="user"
       data-testid="question-submit-page"
-      class="flex flex-col items-center"
+      class="outerFormContainer"
     >
       <div>
-        <h1 class="mt-5 text-xlarge2 font-bold text-gray-700 mb-7">
-          問題の投稿
-        </h1>
+        <h1 class="titleContainer">問題の投稿</h1>
       </div>
-      <div class="w-1/3 p-5 rounded bg-front pr-7">
+      <div class="formContainer">
         <TextArea
           row="4"
           id="front"

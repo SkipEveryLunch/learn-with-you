@@ -103,9 +103,4 @@ export default defineComponent({
 .modalbox-enter-active {
   transition: all 0.25s ease;
 }
-.modal {
-  @apply flex flex-col pb-3 bg-gray-100 rounded-md text-gray-700;
-  width: 300px;
-  overflow: hidden;
-}
 </style>

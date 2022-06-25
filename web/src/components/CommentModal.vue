@@ -17,7 +17,7 @@
     <transition name="modalbox" appear>
       <div class="modal">
         <div class="py-2 pl-5 text-gray-100 bg-blue-700">コメントの投稿</div>
-        <div class="flex flex-col m-5">
+        <div class="flex flex-col px-5 pt-5 gap-3">
           <div class="flex flex-col">
             <div>
               <span v-if="mode === 'new'">
@@ -39,7 +39,7 @@
             </select>
           </div>
 
-          <div class="flex flex-col mt-6">
+          <div class="flex flex-col">
             <label for="not-proper-detail">詳細を以下にご記入ください</label>
             <textarea
               rows="4"
@@ -49,7 +49,7 @@
               type="text"
             />
           </div>
-          <div class="mt-3">
+          <div class="mt-auto">
             <div v-if="mode === 'new'" class="flex justify-center">
               <button
                 class="mr-1 btn btn-primary"
@@ -240,9 +240,5 @@ export default defineComponent({
 }
 .modalbox-enter-active {
   transition: all 0.25s ease;
-}
-.modal {
-  @apply flex flex-col  bg-gray-100 rounded-md w-1/4 text-gray-700;
-  overflow: hidden;
 }
 </style>

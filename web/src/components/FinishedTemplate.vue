@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center w-full h-full">
+  <div class="outerFormContainer w-full h-full">
     <div
       data-testid="study-finish-message"
       class="py-4 m-4 text-center text-normal bg-front rounded-lg w-max px-7"

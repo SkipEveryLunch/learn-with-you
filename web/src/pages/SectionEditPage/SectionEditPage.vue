@@ -33,7 +33,7 @@
       />
       <transition-group
         tag="ul"
-        class="flex flex-col h-full scroller"
+        class="flex flex-col gap-2 h-full scroller"
         appear
         @before-enter="beforeEnter"
         @enter="enter"
