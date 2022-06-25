@@ -7,8 +7,7 @@
       bg-front
       text-normal
       sm:mx-1
-      py-2
-      sm:px-2
+      p-2
       rounded-sm
       gap-2
     "

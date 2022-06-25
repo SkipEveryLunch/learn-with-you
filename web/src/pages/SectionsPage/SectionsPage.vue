@@ -24,7 +24,7 @@
         <transition-group
           tag="ul"
           appear
-          class="flex flex-col scroller"
+          class="flex flex-col gap-2 scroller"
           @before-enter="beforeEnter"
           @enter="enter"
         >
