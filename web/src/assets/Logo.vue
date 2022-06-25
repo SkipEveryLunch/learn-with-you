@@ -53,7 +53,7 @@
 </template>
 <style scoped>
 .container {
-  @apply w-40 h-8;
+  @apply w-28 sm:w-40 h-8;
 }
 .container:hover .text {
   fill: rgb(14, 116, 144);
