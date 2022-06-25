@@ -2,6 +2,6 @@ FROM node:16-alpine
 EXPOSE 8080
 WORKDIR "/app"
 COPY ./package.json ./
-RUN npm install
+RUN rm -rf node_modules package-lock.json && npm install
 COPY . .
 CMD ["npm", "run", "serve"]

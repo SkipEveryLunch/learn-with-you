@@ -1,29 +1,11 @@
-FROM php:7.4.1-fpm
+FROM php:7.4-fpm-alpine
 
-# COPY php.ini /usr/local/etc/php/
+RUN docker-php-ext-install pdo pdo_mysql
+RUN curl -sS https://getcomposer.org/installer | php -- \
+        --install-dir=/usr/local/bin --filename=composer
 
-RUN apt update
-RUN apt install -y wget git unzip libpq-dev
-
-RUN apt install -y npm \
-  && npm install n -g \
-  && n 12
-
-RUN apt install -y zlib1g-dev mariadb-client libzip-dev libonig-dev \
-  && docker-php-ext-install zip pdo_mysql
-
-RUN curl -sS https://getcomposer.org/installer | php \
-  && mv composer.phar /usr/local/bin/composer \
-  && composer self-update
-
-WORKDIR /var/www
-
-RUN chown -R www-data:www-data /var/www
-
-# RUN composer global require "laravel/installer"
-
-WORKDIR /var/www/html
-
+WORKDIR /app
 COPY . .
-
 RUN composer install
+
+CMD php artisan serve --host=0.0.0.0
