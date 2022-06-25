@@ -11,7 +11,7 @@
     "
   >
     <div class="flex space-x-1">
-      <div class="flex items-center px-2 py-3">
+      <div class="grid place-items-center px-2 py-3">
         <router-link to="/">
           <Logo />
         </router-link>
