@@ -23,7 +23,7 @@
     </div>
     <div
       v-if="sQuestions.length > 0"
-      class="w-full px-5"
+      class="w-full sm:px-5"
       data-testid="question-page"
     >
       <Paginator

@@ -6,8 +6,8 @@
       justify-between
       bg-front
       text-normal
-      m-1
-      p-2
+      sm:mx-1
+      py-2
       sm:px-2
       rounded-sm
       gap-2

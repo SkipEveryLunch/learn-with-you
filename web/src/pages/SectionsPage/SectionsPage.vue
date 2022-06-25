@@ -14,7 +14,7 @@
       :modelValue="search"
       :isMessage="false"
     />
-    <div v-if="!isLoading" class="px-5">
+    <div v-if="!isLoading" class="sm:px-5">
       <div
         v-if="fSections.length > 0"
         data-testid="section-page"
