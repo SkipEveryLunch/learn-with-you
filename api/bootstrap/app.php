@@ -51,5 +51,13 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
+switch ($_SERVER['SERVER_NAME']) {
+    case '0.0.0.0':
+        $app->loadEnvironmentFrom('.env.dev'); 
+        break;
+    default:
+        $app->loadEnvironmentFrom('.env');
+        break;
+}
 
 return $app;
