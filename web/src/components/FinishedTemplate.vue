@@ -18,7 +18,7 @@
         appear
         @before-enter="beforeEnter"
         @enter="enter"
-        class="w-full mt-2 scroller"
+        class="w-full mt-2 flex flex-col gap-2 scroller"
         tag="ul"
       >
         <li

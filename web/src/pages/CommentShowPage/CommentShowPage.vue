@@ -12,7 +12,7 @@
       <div class="px-3">
         <div class="flex flex-col card bg-front">
           <div class="w-full">
-            <div class="p-2 pb-4">
+            <div class="p-2 pb-4 text-normal">
               <p>質問: {{ question.front }}</p>
               <p>解答: {{ question.back }}</p>
             </div>

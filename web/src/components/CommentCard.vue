@@ -5,7 +5,9 @@
         <font-awesome-icon class="text-normal fa-2x" :icon="faUser" />
       </div>
     </div>
-    <div class="triangle"></div>
+    <div
+      :class="{ 'triangle-dark': isDarkMode, 'triangle-light': !isDarkMode }"
+    ></div>
     <div class="card bg-front text-normal" data-testId="comment-card">
       <div class="flex w-full px-5 py-3">
         <div class="flex flex-col pr-2">
@@ -52,6 +54,9 @@ export default defineComponent({
     const user = computed(() => {
       return store.state.user;
     });
+    const isDarkMode = computed(() => {
+      return store.state.isDarkMode;
+    });
     const deleteComment = async (commentId: number) => {
       const { status } = await axios.delete(`comments/${commentId}`);
       if (status === 204) {
@@ -71,6 +76,7 @@ export default defineComponent({
       faUser,
       deleteComment,
       user,
+      isDarkMode,
     };
   },
 });
@@ -79,10 +85,16 @@ export default defineComponent({
 .card {
   @apply w-full rounded;
 }
-.triangle {
+.triangle-dark {
   height: 15px;
   border-top: 15px solid transparent;
   border-right: 20px solid rgba(64, 64, 64);
+  border-bottom: 15px solid transparent;
+}
+.triangle-light {
+  height: 15px;
+  border-top: 15px solid transparent;
+  border-right: 20px solid rgba(247, 250, 252);
   border-bottom: 15px solid transparent;
 }
 </style>
